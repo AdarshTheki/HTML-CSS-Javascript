@@ -7,30 +7,35 @@
     <title>Flex</title>
     <style>
       .cont {
-        display: flex;
         height: 300px;
         border: 1px solid black;
+        display: flex;
         /* flex-direction: row; */
         /* flex-wrap: wrap; */
-        /* justify-content: center; */
+        /* flex-flow: column; */
+        /* justify-content:space-evenly; */
         /* align-items: center; */
         /* gap: 100px; */
       }
       .box {
-        /* height: 100px;
-        width: 500px; */
+        height: 100px;
+        width: 500px;
         flex-basis: 200px;
       }
       .box1 {
         background-color: red;
-        /* order: 100; */
-        /* flex-grow: 10; */
+        /* no. of item asending order */
+        /* order: 100; */   
+        /* that amount of page full-fill from this box1 */
+        /* flex-grow: 3; */
+        /* flex-shrink: 3; */
+        /* align-self: center; */
       }
       .box2 {
         background-color: yellow;
         /* order: 1; */
         /* flex-grow: 2; */
-        /* flex-shrink: 2; */
+        /* flex-shrink: 3; */
         /* align-self: center; */
       }
       .box3 {
