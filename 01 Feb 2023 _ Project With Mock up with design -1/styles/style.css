@@ -7,22 +7,27 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-color: #edf1fd;
+  /* background-color: #edf1fd; */
+  background-image: url(../assets/waltercolour-salt-3.jpg);
   display: flex;
   flex-direction: column;
+  background-position: center;
+  background-attachment: fixed;
   justify-content: space-between;
 }
 
 li {
   list-style: none;
   cursor: pointer;
-  
+  padding: 7px 10px;
+  color: black;
 }
 
 a {
   text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-weight:900;
+  color: white;
 }
 
 button {
@@ -30,7 +35,7 @@ button {
   padding: 4px 6px;
   cursor: pointer;
   color: white;
-  border: 1px solid white;
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
   font-weight: 700;
   width: fit-content;
@@ -43,15 +48,15 @@ button:hover {
 }
 
 header {
-  padding: 15px 5px;
+  padding: 10px 0px;
+  background-color: rgba(0, 0, 0, 0.459);
 }
 nav {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0 2rem;
   align-items: center;
-  justify-content:space-evenly;
+  justify-content:space-around;
 }
 
 nav .logo {
@@ -63,18 +68,16 @@ nav .logo {
 nav ul {
   display: flex ;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
   font-weight: 500;
+  margin: 10px;
 }
 
 nav ul li:hover {
-  background-color: #fcf9fc;
-  color: black;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-weight: 900;
-  /* padding: 0 5px; */
-  
+  background-color:#00000069;
+  color: rgba(255, 255, 255, 0.301);
+  outline: 1px solid black;
+  border-radius: 15px;  
 }
 
 .search-field {
@@ -93,12 +96,12 @@ input {
 
 .hero-left-section {
   width: 60%;
-  padding: 0 8%;
+  padding: 0 6%;
 }
 
 .hero-left-section h1 {
   font-weight: 800;
-  font-size: 30px;
+  font-size: 26px;
   margin-bottom: 16px;
 }
 .hero-left-section h1 span {
@@ -116,9 +119,9 @@ input {
 }
 
 .hero-left-section p span {
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 700;
-  color: #af2db3;
+  color: #af2db3ec;
 }
 
 .hero-right-section {
@@ -127,17 +130,18 @@ input {
   width: 40%;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   overflow:hidden;
 }
 .hero-right-section-btn {
-  display: flex;
+  display: flex; 
   align-items: center;
   gap: 30px;
 }
 
 .hero-right-section img {
-  width: 260px;
+  /* width: 260px; */
+  width: 15rem;
   border-radius: 50%;
 }
 
@@ -145,8 +149,8 @@ footer {
   font-weight: 600;
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
-  background-color:#af2db3a2;
+  padding: 10px 10px 0px 10px;
+  background-color:#af2db379;
   color: white;
   justify-content: space-around;
 }
