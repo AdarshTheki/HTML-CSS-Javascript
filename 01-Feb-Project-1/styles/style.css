@@ -161,3 +161,16 @@ footer ul {
   gap: 4vw;
   color: black;
 }
+
+footer ul li a{
+  color: black;
+  font-size: 15px;
+  padding: 0 8px;
+}
+
+footer ul li a:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.473);
+  outline: 2px solid rgba(255, 255, 255, 0.493);
+  border-radius: 10px;
+}

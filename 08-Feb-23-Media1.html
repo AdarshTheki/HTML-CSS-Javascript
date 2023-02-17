@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="Author" content="Adarsh">
+   <title>Media Query</title>
+   <style>
+      /* 
+      Larger screen: 1440px;
+      Normal screen: 1024px;
+      Tablet screen: 768px;
+      Mobile screen: 425px;
+      
+      */
+      .container{
+         display: flex;
+      }
+      .box{
+         border: 2px solid black;
+         margin: 2px;
+         width: 350px;
+         height: 350px;
+      }
+      .box1 {
+         background-color: red;
+      }
+      .box3 {
+         background-color: yellow;
+      }
+      /* media query */
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+         body{
+            /* display: none; */
+            background-color: #808080;
+         }
+         .container{
+            display: flex;
+            flex-direction: column;
+         }
+         .box2 {
+            background-color: royalblue;
+         }
+         .box4 {
+            background-color: yellow;
+         }
+      }
+   </style>
+</head>
+<body>
+   <div class="container">
+      <div class="box box1">Larger screen</div>
+      <div class="box box2">laptop screen</div>
+      <div class="box box3">Tablet screen</div>
+      <div class="box box4">Mobile Screen</div>
+   </div>
+</body>
+</html>

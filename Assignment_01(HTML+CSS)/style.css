@@ -18,25 +18,38 @@ body {
 /* ---------- NAVBAR ------------ */
 /* ------------------------------ */
 
-.navbar {
+nav {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
-  padding: 0 60px 0 60px;
-  margin-top: 55px;
+  padding: 20px;
+  /* margin-top: 5px; */
+  background-color: rgba(0, 0, 0, 0.24);
 }
 
 .list {
   display: flex;
   align-items: center;
-  gap: 63px;
+  gap: 30px;
+  margin-top: 10px;
   list-style: none;
   font-family: "Red Rose";
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-weight: 600;
+  font-size: 26px;
+  /* line-height: 22px; */
   color: #ffc233;
+}
+.list-item {
+  padding: 5px 10px;
+  border-radius: 10px;
+  
+}
+.list-item:hover {
+  background-color: rgba(0, 0, 0, 0.322);
+  color: #fcff33;
+  outline: 2px solid black;
 }
 
 .logo,
@@ -45,9 +58,11 @@ body {
 }
 
 .button-small {
+  margin-top: 10px;
   padding: 12px 40px;
   background-color: #ff505f;
   border: none;
+  border-radius: 5px;
   font-family: "Red Rose";
   font-style: normal;
   font-weight: 700;

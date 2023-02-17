@@ -8,30 +8,16 @@
          width: 100px;
          background-color: red;
          position: relative;  /* Important to animation */
-         /* animation-name: colorchange; */
-         /* animation-duration: 20s; */
+         animation-name: example;
+         animation-duration: 3s;
          /* animation-delay: 1s; */
-         /* animation-iteration-count: 1; */
+         animation-iteration-count: 1;
          /* animation-direction: alternate-reverse; */
-         /* animation-timing-function: ease-out; */
-         /* animation-fill-mode: both; */
-         animation: colorchange 8s linear 3s infinite reverse forwards;   
-      }
-      
-      #ease {
-         animation-timing-function: ease;
-      }
-      #ease-in {
-         animation-timing-function: ease-in;
-      }
-      #ease-out {
          animation-timing-function: ease-out;
       }
-      #linear {
-         animation-timing-function: linear;
-      }
-
-      @keyframes colorchange {
+      @keyframes example {
+         /* from { background-color: blue; left: 0px; top: 0px; }
+         to { background-color: yellow;  left: 200px; top: 0px;  } */
          0% { 
             background-color: yellow;
             left: 0px; top: 0px;
@@ -56,11 +42,7 @@
    </style>
 </head>
 <body>
-
-   <div id="ease">ease</div>
-   <div id="linear">linear</div>
-   <div id="ease-in">ease-in</div>
-   <div id="ease-out">ease-out</div>
+   <div class="anima"></div>
    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, est.</p>
 </body>
 </html>
