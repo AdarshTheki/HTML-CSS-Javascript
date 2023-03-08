@@ -1,5 +1,54 @@
+//* variables:-
+var X = 2
+let B ='adarsh'
+console.log(X,B);
+const c = {
+   'name': 'Adarsh',
+   'surname': 'verma',
+   age: 25,
+   city: function(){
+      console.log("adarsh: 15");
+   }
+};
+console.log(c);
+console.log(c['city'])
+const z = {
+   adarsh:'verma', 'age': 45, city: "adarsh"
+}
+console.log(z)
+console.log(this)
+// hello world in Node.js
+let S = true;  let E = false;
+console.log(S,E)
 
 
+//* Array:-
+let a = [1,2,3,4];
+console.log(a);
+let ak = ['Adarsh',1,2,3,false,2.3];
+console.log(ak);
+let b = new Array(10);
+console.log(b);
+console.log(a[0]);
+//* element    -> [22,34,556,3];
+//* index/pos  ->  0, 1, 2, 3
+let array = [34,22,4,0,44,22,1,6];
+console.log(array);
+
+//*Array Method:-
+array.pop();                  //* Pop() - remove last place element 
+array.push(786);              //* push() - add last element
+console.log(array);
+const s = array.slice(2,7);   //* slice() - to fetch data from start to end -1
+console.log(s);
+const str = array.join('#');  //* join() - to add the separate string with '#'.
+console.log(str);
+const rev = array.reverse()   //*   reverse() element
+console.log(rev);
+const A = [1,2,3,4,56,7];     //* indexOf()
+console.log(A.indexOf(5));
+const remove = A.splice(2,2,2);
+console.log(remove);
 
 //>  Function:-
 
@@ -37,17 +86,17 @@ function add(x,y){
 }
 console.log(add(10,4));
 
-let addFunction = function(x,y){    // Anonymous function
+let addFunction = function(x,y){    //* Anonymous function
    return x+y;
 }
 console.log(addFunction(10,4));
 
-let arrowFunction = (x,y) => {    // Arrow function
+let arrowFunction = (x,y) => {      //* Arrow function
    return x+y;
 }
 console.log(arrowFunction(10,4));
 
-let nameFunction = function eval(x,y){  // named function expression
+let nameFunction = function eval(x,y){  //* named function expression
    return x+y;
 }
 console.log(nameFunction(10,4));
