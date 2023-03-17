@@ -1,0 +1,15 @@
+body{
+  min-height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+button{
+  padding: 5px;
+  margin: 20px;
+  border-radius: 5px;
+}
+button:hover{
+  background-color: rgb(68, 194, 125);
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>statement-2</title>
+  <link rel="stylesheet" href="./2_index.css"/>
+</head>
+<body>
+
+  <h1>Hello world.</h1>
+<button id="container1"> 👇 OnClick</button>
+<button id="container2"> 👇 DoubleClick</button>
+<button id="container3"> 👇 MouseOver</button>
+<button id="container4"> 👇 Mouse Out</button>
+<button id="container5"> 👇 OnKeyPress</button>
+<button id="container6"> 👇 KeyDown-KeyUp</button>
+
+<script>
+  let one = document.getElementById("container1");
+let two = document.getElementById("container2");
+let three = document.getElementById("container3");
+let four = document.getElementById("container4");
+let five = document.getElementById("container5");
+let six = document.getElementById("container6");
+
+// one.addEventListener("onClick", function(){
+//   alert("")
+// });
+
+// one.addEventListener("click", function(){
+//   alert("This is a onClick It.")
+// })
+// one.addEventListener("dblclick", function(){
+//   alert("This is a dblclick It.")
+// })
+one.addEventListener("mouseover", function(){
+  alert("This is a dblclick It.");
+  one.style.backgroundColor = 'red'; 
+})
+</script>
+</body>
+</html>
