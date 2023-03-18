@@ -1,4 +1,4 @@
-// foreach, map, Filter, and every find sort array.
+// forEach(), map(), Filter(), Reduce(), Every(), Find(), and Sort() an Array.
 
 let arr = [2, 3, 4];
 arr.forEach(function (element, index, arr) {
@@ -6,7 +6,7 @@ arr.forEach(function (element, index, arr) {
 });
 
 arr.forEach((element, index, arr) => {
-  console.log("Arrow", index, element, arr);
+  console.log("Arrow:", index, element, arr);
 });
 
 //-===========================================================//
@@ -24,7 +24,7 @@ console.log("map:", hero);
 
 // Filter
 const heroWithRaj = hero.filter((h) => {
-  return h.endsWith("age"); // match the end of hero as age.
+  return h.endsWith("age"); // match the end of hero as `age`.
 });
 console.log("filter", heroWithRaj);
 
@@ -43,16 +43,21 @@ console.log("every check:", gameScoreCheck);
 const above200 = gameScore.find((score) => score > 200);
 console.log("find", above200);
 
+//==================================
+
 // check the find Index, some, sort
 const age = [20, 30, 45, 100];
 const checker = age.indexOf(45);
-console.log("indexOf:", checker);
+console.log("indexOf:", checker);   // which index of vale 
 
-const ageCheck = age.findIndex((el) => el === 100);
+const ageCheck = age.findIndex((el) => el === 100);   // findindex()
 console.log("findIndex:", ageCheck);
 
-const someCheck = age.some((el) => el % 2 === 0);
+const someCheck = age.some((el) => el % 2 === 0);   // some Check true or not
 console.log("some:", someCheck);
 
-const arrSort = age.sort();
+const arrSort = age.sort();       // sort Array
 console.log("sort", arrSort);
+
+
+// Date: 06-03-2023 : 126-capture
