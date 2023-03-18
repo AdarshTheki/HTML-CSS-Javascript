@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query in Action</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      div {
+        text-align: center;
+        font-size: x-large;
+      }
+      div::after {
+        content: "Welcome to the demo";
+      }
+      /* @media (min-width: 900px) {
+          body {
+            background-color: aquamarine;
+        }
+        div::after {
+            content: 'Wosh we are responsive';
+        }
+      } */
+      /* Extra small devices (phones, 600px and down) */
+      @media (max-width: 600px) {
+        body {
+          background-color: aquamarine;
+        }
+        div::after {
+          content: 'Extra small devices (phones, 600px and down)';
+        }
+      }
+
+      /* Small devices (portable table and large phones, 600px and up) */
+      @media only screen and (min-width: 600px) {
+        body {
+          background-color: blue;
+        }
+        div::after {
+          content: "Small devices (portable table and large phones, 600px and up)";
+        }
+      }
+
+      /* Median devices (landscape table 768px and up) */
+      @media (min-width: 768px) {
+        body {
+          background-color: gold;
+        }
+        div::after {
+          content: "Median devices (landscape table 768px and up)";
+        }
+      }
+
+      /* Large devices (laptop/desktop, 992px and up) */
+      @media (min-width: 992px) {
+        body {
+          background-color: green;
+        }
+        div::after {
+          content: "Large devices (laptop/desktop, 992px and up)";
+        }
+      }
+
+      /* Extra Large devices (large laptop/desktop, 1200px and up) */
+      @media (min-width: 1200px) {
+        body {
+          background-color: pink;
+        }
+        div::after {
+          content: "Extra Large devices (large laptop/desktop, 1200px and up)";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      
+    </div>
+  </body>
+</html>

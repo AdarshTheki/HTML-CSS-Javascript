@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Overflow and Z-index</title>
+    <style>
+      /* p {
+        height: 250px;
+        width: 250px;
+        border: 2px solid black;
+        overflow: auto;
+      } */
+      .one {
+        height: 100px;
+        width: 100px;
+        background-color: rgb(50, 24, 194);
+        border: 2px solid red;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+      }
+      .two {
+        height: 100px;
+        width: 100px;
+        background-color: yellow;
+        position: absolute;
+        top: 3;
+        z-index: 3;
+      }
+    </style>
+</head>
+  <body>
+    <!-- overflow   -->
+    <p>Lorem Lorem, ipsum dolor sit amen consectetur adipisicing elit. Id, error dicta pariatur natus reiciendis consequatur suscipit quam odit asperiores magnam reprehenderit ducimus cum porro totam et illum explicabo. Providenthenderit ducimus cum porro totam et illum explicabo. Provi alias nesciunt impedit saepe illo eum dolor quod dolorum vero blanditiis, possimus consequatur, labore necessitatibus, iusto natus eligendi. Omnis, quia praesentium. ipsum dolor sit amet consectetur adipisicing elit. Tempora</p>
+    <!-- Z-index -->
+    <div class="one"></div>
+    <div class="two"></div>
+  </body>
+</html>

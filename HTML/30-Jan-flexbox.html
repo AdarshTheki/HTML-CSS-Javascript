@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex</title>
+    <style>
+      .cont {
+        height: 300px;
+        border: 1px solid black;
+        display: flex;
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+        /* flex-flow: column; */
+        /* justify-content:space-evenly; */
+        /* align-items: center; */
+        /* gap: 100px; */
+      }
+      .box {
+        height: 100px;
+        width: 500px;
+        flex-basis: 200px;
+      }
+      .box1 {
+        background-color: red;
+        /* no. of item ascending order */
+        /* order: 100; */   
+        /* that amount of page full-fill from this box1 */
+        /* flex-grow: 3; */
+        /* flex-shrink: 3; */
+        /* align-self: center; */
+      }
+      .box2 {
+        background-color: yellow;
+        /* order: 1; */
+        /* flex-grow: 2; */
+        /* flex-shrink: 3; */
+        /* align-self: center; */
+      }
+      .box3 {
+        background-color: green;
+        /* order: 3; */
+        /* flex-grow: 3; */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Flex -->
+    <div class="cont">
+      <div class="box box1">Box 1</div>
+      <div class="box box2">Box 2</div>
+      <div class="box box3">Box 3</div>
+    </div>
+  </body>
+</html>

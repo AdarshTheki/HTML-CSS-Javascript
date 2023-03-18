@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Pseudo-class</title>
+   <style>
+      /* Pseudo Class selectors */
+      .hello:hover,
+      .hello:focus, 
+      .hello:visited,
+      .hello:active,
+      a:first-child,
+      a:nth-child(2n+1)
+      {
+         background-color: rgb(120, 214, 214);
+         font-size: 2rem;
+         border: 2px solid black;
+      }
+      /* Pseudo Element */
+      .lorem::before {
+         content: "PW Skills";
+         color: red;
+      }
+      .lorem::after {
+         content: "PW Skills";
+         color: red;
+      }
+      ::selection {
+         background-color: azure;
+         color: yellow;
+      }
+</style>
+</head>
+<body>
+   <!-- Pseudo Classes -->
+   <p class="hello">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, temporibus incidunt. Nihil, perspiciatis at? Consectetur veritatis error impedit velit atque deleniti. Fugit placeat neque <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, voluptate soluta. Dolore, maiores! Sequi nemo itaque a, facere repudiandae cum ipsa earum. Ullam ex consequuntur sunt animi repellendus iste nam.</a> quam quasi ullam voluptatem! Quis animi atque vitae fuga at consectetur modi pariatur ipsa deserunt iure, sapiente doloribus dolore laborum rem officia aut omnis temporibus aliquam?</p>
+   <hr>
+   <p class="lorem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, temporibus incidunt. Nihil, perspiciatis at? Consectetur veritatis error impedit velit atque deleniti. Fugit placeat neque <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, voluptate soluta. Dolore, maiores! Sequi nemo itaque a, facere repudiandae cum ipsa earum. Ullam ex consequuntur sunt animi repellendus iste nam.</a> quam quasi ullam voluptatem! Quis animi atque vitae fuga at consectetur modi pariatur ipsa deserunt iure, sapiente doloribus dolore laborum rem officia aut omnis temporibus aliquam?</p>
+   <hr>
+
+</body>
+</html>
