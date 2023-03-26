@@ -30,7 +30,7 @@ console.log(str);
 const rev = array.reverse()     // reverse() element
 console.log(rev);
 
-const A = [1,2,3,4,56,7];       // indexOf()
+const A = [1,2,3,4,56,7];        // indexOf()
 console.log(A.indexOf(5));
 
 const remove = A.splice(2,2,2);  // split() 
