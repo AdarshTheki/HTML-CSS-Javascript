@@ -2,10 +2,10 @@
 
 console.log("This is my first programming Language");
 
-let x = 22; // initialize
-x = 24; // let x = 24 not redefined but value change
+let x = 22;   // initialize
+x = 24;       // let x = 24 not redefined but value change
 var y = 67;
-var y = 60; // redefine & value changed
+var y = 60;   // redefine & value changed
 const z = "Adarsh"; // not change any
 console.log(x, y, z);
 

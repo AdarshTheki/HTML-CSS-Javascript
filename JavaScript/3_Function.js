@@ -8,7 +8,7 @@ function sumOfAllParameter() {
   }
   return sum;
 };
-console.log(sumOfAllParameter(1,2,3,4,5,7));
+console.log("sumOfAllParameter", sumOfAllParameter(1,2,3,4,5,7));
 
 // Function with given parameter:-
 function sumOfParameter([a,b,c]) {
@@ -19,20 +19,20 @@ console.log(sumOfParameter(arr));
 
 // Anonymous function:-
 let x = function(){
-  console.log("Hello, How you.!");
+  console.log("Anonymous : Hello, How you.!");
 }
 x();
 
 // Immediately Invoke function execute (IIFE):-
 (function(name){
   console.log("greeting!",name);
-})('Self Invoke Function');
+})('IIFE: Self Invoke Function');
 
 // function Expression:-
 function add(x,y){
   return x+y;
 }
-console.log(add(10,4));
+console.log("add", add(10,4));
 
 let addFunction = function(x,y){    // Anonymous function
   return x+y;
@@ -42,9 +42,9 @@ console.log(addFunction(10,4));
 let arrowFunction = (x,y) => {      // Arrow function
   return x+y;
 }
-console.log(arrowFunction(10,4));
+console.log("arrowFunction", arrowFunction(10,4));
 
 let nameFunction = function eval(x,y){  // named function expression
   return x+y;
 }
-console.log(nameFunction(10,4));
+console.log("nameFunction", nameFunction(10,4));
