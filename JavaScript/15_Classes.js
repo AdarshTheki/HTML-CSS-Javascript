@@ -1,8 +1,25 @@
-class Product { // Class is kind of like a template
-  
+// This is class expression
+
+const Rectangle = class { // the class is anonymous but assigned to a variable
+  constructor(h, w) {
+    this.height = h;
+    this.width = w;
+  }
+};
+const AreasOfRectangle = class Area {  // the class has its own name
+  constructor(h, w) {
+    this.height = h;
+    this.width = w;
+  }
+};
+
+
+
+// This is class declaration
+
+class Product {   
     constructor(n, p) {
     // console.log("Calling the Constructors");
-    // console.log(this);
     this.name = n;
     this.price = p;
     // console.log(this);
