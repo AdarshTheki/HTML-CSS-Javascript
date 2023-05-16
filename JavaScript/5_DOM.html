@@ -31,32 +31,18 @@
 
 // ID
 let paragraph = document.getElementById("paragraph");
-// console.log(paragraph.innerText);
-// console.log(paragraph.outerText);
 // console.log(paragraph.innerHTML);
-// console.log(paragraph.outerHTML);
 // console.log(paragraph.textContent);
 
 
-// CLASS
-let tech = document.getElementsByClassName("tech");
+// get Element, query Selectors 
+let tech = document.getElementsByClassName("tech"); // class Name
 console.log(tech);
-console.log(tech[1].innerText);
-tech[2].innerText = "Node.js";
-
-// Tag Name
-let Tagname = document.getElementsByTagName("h2");
+let Tagname = document.getElementsByTagName("h2"); // Tag Name
 console.log(Tagname[2]);
-Tagname[2].innerText = "Adarsh.js";
-Tagname[2].style.color = 'red';
+let Qs = document.querySelector("h3") //  Query Selector
 
-//  Query Selector
-let Qs = document.querySelector("h3")
-let Qs1 = document.querySelector(".Adarsh")
-let Qs2 = document.querySelectorAll(".Adarsh")
-console.log(Qs);
-console.log(Qs1);
-console.log(Qs2[1]);
+// modified Classes:
 Qs.classList = "Ayush Aa Verma"       // add class
 Qs.setAttribute("tittle", "PwSkill")  // set attribute 
 
