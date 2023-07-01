@@ -69,3 +69,23 @@ DELETE FROM student WHERE id IN (10, 15);
 -- COMMIT and ROLLBACK:-
 COMMIT;
 ROLLBACK;
+
+-- Primary and Secondary :-
+-- First Main Table of Student 
+CREATE TABLE student (
+  id INT NOT NULL,
+  name VARCHAR(100) NOT NULL, 
+  email VARCHAR(120) NOT NULL, 
+  primary key(id)                               -- primary key
+);
+insert into student (id, name, email) values (01, "Adarsh", "adarsh@gmail.com");
+
+-- foreign key refer to first table primary key
+CREATE TABLE candidate (
+  id INT NOT NULL,
+  lastName VARCHAR(100) NOT NULL, 
+  stud_id int null, 
+  primary key(id),
+  foreign key(stud_id) references student(id)   -- foreign key
+)
+insert into candidate (id, lastName, stud_id) values (101, "Verma", 1);

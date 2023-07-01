@@ -4,10 +4,19 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+:root {
+  --primary-color: hsl(300, 59%, 48%);
+  --secondary-color:hsl(185, 56%, 46%);
+  --text-gray: hsl(0, 0%, 11%);
+  --text-white: hsl(225, 80%, 96%);
+  --text-hover: hsl(185, 55%, 31%);
+  --bg-color: hsla(298, 60%, 44%, 0.475);
+}
+
+
 body {
-  height: 100vh;
-  width: 100vw;
-  /* background-color: #edf1fd; */
+  min-height: 100vh;
+  background-color: var(--text-white);
   background-image: url(../assets/waltercolour-salt-3.jpg);
   display: flex;
   flex-direction: column;
@@ -19,37 +28,33 @@ body {
 li {
   list-style: none;
   cursor: pointer;
-  padding: 7px 10px;
-  color: black;
 }
 
 a {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight:900;
-  color: white;
+  color: var(--text-gray);
 }
 
 button {
-  background-color: rgb(24, 172, 172);
-  padding: 4px 6px;
+  background-color: var(--secondary-color);
+  padding: 4px 10px;
   cursor: pointer;
-  color: white;
-  border: 1px solid rgb(0, 0, 0);
+  color: var(--text-gray);
+  border: none;
   border-radius: 5px;
   font-weight: 700;
   width: fit-content;
 }
 
 button:hover {
-  background-color: #af2db3;
-  color: white(18, 155, 155);
-  border: 1px solid black;
+  background-color: var(--text-hover);
 }
 
 header {
   padding: 10px 0px;
-  background-color: rgba(0, 0, 0, 0.459);
+  background-color: var(--bg-color);
 }
 nav {
   display: flex;
@@ -60,9 +65,7 @@ nav {
 }
 
 nav .logo {
-  font-weight: 700;
-  padding: 0 20px;
-  font-size: 2rem;
+  width: 50px;
 }
 
 nav ul {
@@ -71,12 +74,6 @@ nav ul {
   gap: 25px;
   font-weight: 500;
   margin: 10px;
-}
-
-nav ul li:hover {
-  background-color:#00000069;
-  color: rgba(255, 255, 255, 0.301);
-  outline: 1px solid black;
   border-radius: 15px;  
 }
 
@@ -169,8 +166,18 @@ footer ul li a{
 }
 
 footer ul li a:hover {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.473);
-  outline: 2px solid rgba(255, 255, 255, 0.493);
-  border-radius: 10px;
+  color: #af2db3ec;
+}
+
+@media (max-width:600px) {
+  .hero-section{
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px;
+  }
+  .hero-left-section, .hero-right-section {
+    flex: 1;
+    width: 100%;
+  }
 }
