@@ -15,8 +15,7 @@ setTimeout(() => {
 
 console.log(5);
 
-// 2, 5, 3, 1, 4
-
+// Output: 2, 5, 3, 1, 4
 /*
 * Micro Task Queue: 
 - process.nextTick(),
@@ -30,12 +29,9 @@ console.log(5);
 - setImmediate()
 */
 
-// SetTimeOut and Event Loop:
-for (var i = 0; i < 3; i++) {
-  console.log(i);
-}
+// Q. SetTimeOut and Event Loop:
 for (var i = 0; i < 3; i++) {
   setTimeout(function () {
-    console.log(i);
-  }, 1000);
+    console.log("event loop:", i);
+  }());
 }

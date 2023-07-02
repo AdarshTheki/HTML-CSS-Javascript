@@ -31,12 +31,14 @@ SELECT col1, col2, ... from database_name;    -- particular column
 SELECT * from database_name;                  -- all column select
 SELECT col1 as column_one from database_name; -- column name change
 
--- WHERE Clauses: (Filter Data with operators)
+-- WHERE Clauses: (Filter Data with OPERATORS)
+-- Arithmetic, Bitwise, Comparison, Compound(+=, -= ...)
+-- IN, AND, OR, NOT, ALL, ANY, BETWEEN, EXISTS, LIKE, SOME 
 SELECT * FROM student WHERE age > 20;
 SELECT * FROM student WHERE age <="20" AND age >="15";  -- AND, OR and NOT
 SELECT * FROM student WHERE age IN (20, 18, 16, 25);     -- IN is all use value
 
--- LIKE: (wildcard - SEARCH) (%)multiple value 0 to 9  (_) single value
+-- LIKE: (wildcard - SEARCH) (%) zero, one or multiple value   (_) single value
 SELECT * FROM student WHERE name LIKE "%d_r%";
 
 -- BETWEEN AND: (range)
@@ -50,14 +52,13 @@ SELECT DISTINCT age FROM table_name ORDER BY age ASC;
 -- IS NULL / IS NOT NULL:
 SELECT * FROM table_name WHERE gender IS NULL;
 
--- LIMIT:  (limit Data)
--- OFFSET: (how to start Data)
+-- LIMIT:(limit Data), OFFSET:(how to start Data)
 SELECT * FROM table_name LIMIT 10 OFFSET 0;
 
 /* Aggregate Functions in MySQL:-
 COUNT() SUM() AVG() MIN() MAX()   */
-SELECT COUNT(id) FROM table_name;
-SELECT SUM(id) as uniqueId FROM table_name;
+SELECT COUNT(col_name) FROM table_name;
+SELECT SUM(col_name) as uniqueId FROM table_name;
 
 -- UPDATE query:-(WHERE clause use id)
 UPDATE table_name SET name = "Adarsh" WHERE id = 11;
