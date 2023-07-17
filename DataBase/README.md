@@ -33,6 +33,8 @@ A relational database is an collection of data items with pre-define relationshi
 
 > **MySql** is a Relational Database management system (RDBMS) developed on **Oracle** that is based on "**Structure Query Language**".
 
+75 Most Popular MySQL Commands: **[visit here](https://www.shiksha.com/online-courses/articles/most-popular-mysql-commands/)**
+
 ### Primary Key:
 
 - Primary key always contains unique data. It cannot be null.
@@ -71,3 +73,30 @@ values (1, "ayush", "ayush@gmail.com", 101),
 - `DELETE` - deletes data from a database
 - `CREATE INDEX` - creates an index (search key)
 - `DROP INDEX` - deletes an index
+
+```sql
+-- CREATE QUERY
+
+-- INSERT INTO
+INSERT INTO table_name (col1, col2, col3) VALUES (value_1, ‘value_2’, value_3);
+
+-- READ QUERY 
+syntax: SELECT column_name FROM table_name;
+
+SELECT * FROM table_name WHERE age < 0 ;                        -- OPERATORS
+SELECT * FROM table_name WHERE age < 0 AND city = "Nagpur" ;    -- OPERATOR & CONDITION
+SELECT * FROM table_name WHERE age IN(10, 12, 15, 28, 35) ;     -- SPECIFIC RANGE
+SELECT * FROM table_name WHERE age LIKE "%d_%" ;   -- WILDCARD(%)ZERO TO MULTIPLE (_) SINGLE
+SELECT * FROM table_name WHERE age BETWEEN 20 AND 45 ;          -- RANGE
+SELECT * FROM table_name ORDER BY age DESC ;                    -- ORDER
+SELECT DISTINCT(age) FROM table_name ORDER BY age DESC ;        -- UNIQUE VALUE
+SELECT * FROM table_name WHERE age IS NOT NULL ;                -- NULL
+SELECT * FROM table_name WHERE age LIMIT 10 OFFSET 5 ;          -- RANGE LIMIT
+SELECT COUNT(AGE) FROM table_name WHERE age < 18 ;              -- AGGREGATION
+
+-- UPDATE QUERY
+UPDATE table_name SET some_column = some_value WHERE id = 0;    -- UPDATE
+
+-- DELETE QUERY
+DELETE FROM table_name WHERE id = 0;                        -- DELETE
+```
