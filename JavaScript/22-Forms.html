@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms Validation Submit</title>
+  </head>
+  <body>
+    <form action="" class="form">
+      <label for="">
+        email:
+        <input type="email" name="email" id="email" />
+      </label>
+      <br />
+      <label for="">
+        password:
+        <input type="password" name="password" id="password" />
+      </label>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- script..js -->
+    <script>
+      let form = document.querySelector(".form");
+      let email = document.querySelector("#email");
+      let password = document.querySelector("#password");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // console.log("idUsed:", email.value, password.value);
+        console.log(form.email.value, form.password.value);
+
+        // used regular expression(regex)
+      });
+    </script>
+  </body>
+</html>
