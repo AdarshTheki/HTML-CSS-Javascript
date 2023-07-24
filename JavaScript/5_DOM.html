@@ -9,8 +9,7 @@
 </head>
 <body>
   <!-- id -->
-  <p id="paragraph">Hey <span>Hello
-    Bhaya...!</span></p>
+  <p id="paragraph">Hey <span>Hello this is me...!</span></p>
   
   <!-- CLASS -->
   <ul>
@@ -42,9 +41,11 @@ let Tagname = document.getElementsByTagName("h2"); // Tag Name
 console.log(Tagname[2]);
 let Qs = document.querySelector("h3") //  Query Selector
 
-// modified Classes:
+// modified Classes with attributes
 Qs.classList = "Ayush Aa Verma"       // add class
-Qs.setAttribute("tittle", "PwSkill")  // set attribute 
+Qs.setAttribute("tittle", "PwSkill")    // set attribute 
+console.log(Qs.getAttribute("tittle"))  // get attribute
+console.log(Qs.hasAttribute("tittle"))  // check attribute
 
 // Create Element:
 let tittle = document.createElement("h1");
