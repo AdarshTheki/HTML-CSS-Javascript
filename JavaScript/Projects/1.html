@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Change</title>
+  <style>
+    body{text-align: center;}
+    .main{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 50px;
+    }
+    .list {
+      border: 2px solid #333;
+      min-width: 100px;
+      min-height: 100px;
+      cursor: pointer;
+    }
+    #one{ background-color: #8a2be2;}
+    #two {background-color: #800000;}
+    #three{background-color: #0000cd;}
+    #four{background-color: #ff69b4;}
+  </style>
+</head>
+<body>
+  <h1>Color changer</h1>
+  <ul class="main">
+    <li class="list" id="one"></li>
+    <li class="list" id="two"></li>
+    <li class="list" id="three"></li>
+    <li class="list" id="four"></li>
+  </ul>
+  <button>Click Me! 🚀</button>
+
+  <!-- script -->
+<script>
+  const lists = document.querySelectorAll('.list')
+  const body = document.querySelector('body')
+  lists.forEach((button) => {
+    console.log(button)
+    button.addEventListener('click',(e)=> {
+      console.log(e)
+      console.log(e.target)
+      if(e.target.id ==='one'){
+        body.style.backgroundColor = "gold"
+      }
+      if(e.target.id ==='two'){
+        body.style.backgroundColor = "gray"
+      }
+      if(e.target.id ==='three'){
+        body.style.backgroundColor = "blue"
+      }
+      if(e.target.id ==='four'){
+        body.style.backgroundColor = "hotpink"
+      }
+    })
+  })
+</script>
+</body>
+</html>
