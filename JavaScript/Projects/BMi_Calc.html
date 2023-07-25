@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+  </head>
+  <body
+    style="
+      background-color: #222;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    ">
+    <h1>BMI Calculator</h1>
+    <form class="container">
+      <input
+        type="text"
+        id="height"
+        autocomplete="off"
+        placeholder="Height in CM" />
+      <br /><br />
+      <input
+        type="text"
+        id="weight"
+        autocomplete="off"
+        placeholder="Weight in KG" />
+      <br /><br />
+      <button>Calculate</button>
+      <p id="result"></p>
+      <p id="message"></p>
+    </form>
+
+    <!-- script -->
+    <script>
+      const form = document.querySelector("form");
+      // This case you will empty value
+      // const height  = parseInt(document.querySelector('#height').value)
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const height = parseInt(document.querySelector("#height").value);
+        const weight = parseInt(document.querySelector("#weight").value);
+        const result = document.querySelector("#result");
+        const message = document.querySelector("#message");
+
+        if (height === "" || height < 0 || isNaN(height)) {
+          message.innerHTML = "Please give a valid height";
+        } else if (weight === "" || weight < 0 || isNaN(weight)) {
+          message.innerHTML = "Please give a valid weight";
+        } else {
+          const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+          result.innerHTML = `Result:${bmi}`;
+        }
+
+        // Range weight
+        if(result > 18){
+          message.innerHTML = `This is Under = Height:${height} Weight:${weight}`;
+        }else if(result < 24){
+          message.innerHTML = `This is normal = Height:${height} Weight:${weight}`;
+        }else{
+          message.innerHTML = `This is over = Height:${height} Weight:${weight}`;
+        }
+      });
+    </script>
+  </body>
+</html>
