@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-<h1>Hello world How are you.</h1>
-<p id="js"></p>
-<button onclick="hey()" id="jss">Submit</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #images {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+      }
+      #images li {
+        width: 300px;
+      }
+      #images li img {
+        width: 100%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello world How are you.</h1>
+    <p id="js"></p>
+    <button onclick="hey()" id="jss">Submit</button>
 
+    <ul id="images">
+      <li>
+        <img
+          src="https://cdn.pixabay.com/photo/2023/07/06/09/58/mountain-8110139_1280.jpg"
+          alt="image" />
+      </li>
+      <li>
+        <img
+          src="https://cdn.pixabay.com/photo/2023/07/19/05/54/european-shorthair-8136129_1280.jpg"
+          alt="image" />
+      </li>
+      <li>
+        <img
+          src="https://cdn.pixabay.com/photo/2023/07/06/09/58/mountain-8110139_1280.jpg"
+          alt="image" />
+      </li>
+      <li>
+        <img
+          src="https://cdn.pixabay.com/photo/2023/07/19/05/54/european-shorthair-8136129_1280.jpg"
+          alt="image" />
+      </li>
+    </ul>
 
-<script>
-// Event Listener:
-// ex-1:
-document.addEventListener("mouseenter", hello);
-function hello(){
-  document.getElementById("js").innerHTML = "<i>Hey Namaste Bachho..</i>";
-}
-// ex-2:
-function hey(){
-  document.getElementById("jss").innerText = "PwSkill isHere..";
-  document.getElementById("jss").style.color = "red";
-  document.getElementById("jss").style.backgroundColor = "black";
-  document.getElementById("jss").style.fontWeight = "bold";
-  document.getElementById("jss").style.padding = "4px";
-  document.getElementById("jss").style.borderRadius = "50px";
-  document.getElementById("jss").style.border = "10px solid blue";    // shorthand Property
-}
+    <script>
+      // Event Listener:
+      // ex-1:
+      document.addEventListener("mouseenter", hello);
+      function hello() {
+        document.getElementById("js").innerHTML = "<i>Hey Namaste Bachho..</i>";
+      }
+      // ex-2:
+      function hey() {
+        document.getElementById("jss").innerText = "PwSkill isHere..";
+        document.getElementById("jss").style.color = "red";
+      }
 
-</script>
-</body>
+      document.getElementById("images").addEventListener("click", (e) => {
+        console.log(e.target.tagName);
+        if(e.target.tagName === "IMG"){
+          console.log(e.target.id)  
+          let removeItem = e.target.parentNode
+          removeItem.remove()
+          // removeItem.parentNode.removeChild(removeItem)
+        }
+      });
+    </script>
+  </body>
 </html>
-
-
 
 <!-- Date: 27-02-2023 -->
