@@ -5,14 +5,17 @@
   <style>
     /* Add some basic styling */
     body {
-      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      font-family: sans-serif;
       margin: 0;
       padding: 0;
     }
     header {
+      position: sticky;
+      top: 0px;
       background-color: #333;
       color: #fff;
-      padding: 20px;
+      padding: 10px;
       text-align: center;
     }
     h1{
@@ -29,7 +32,7 @@
       text-decoration: underline;
     }
     .container {
-      max-width: 800px;
+      max-width: 600px;
       margin: 20px auto;
       padding: 0 20px;
     }
@@ -40,6 +43,7 @@
       text-align: center;
     }
     .course{
+      line-height: 0.6;
       text-transform: uppercase;
     }
   </style>
@@ -51,7 +55,7 @@
   
   <div class="container">
     <h2>About Me</h2>
-    <p>Add some information about web development journey</p>
+    <h4>Add some information about web development journey</h4>
     
     <h2>Projects</h2>
     <ul>
@@ -82,7 +86,7 @@
   </div>
   
   <footer>
-    &copy; 2023 Full stack web Development
+    <strong>&copy;AdarshVerma</strong> 2023 Full stack web Development
   </footer>
 </body>
 </html>
