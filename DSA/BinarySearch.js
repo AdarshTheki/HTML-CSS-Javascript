@@ -5,7 +5,6 @@ function binarySearch(array, target) {
   while (low <= high) {
     let mid = Math.floor((low + high) / 2);
     let midValue = array[mid];
-
     if (midValue === target) {
       return mid;
     } else if (midValue < target) {
@@ -17,5 +16,6 @@ function binarySearch(array, target) {
   return -1;
 }
 
-let search = binarySearch([2, 4, 6, 8, 0, 10], 8);
+let array = [1, 2, 4, 5, 6, 9];
+let search = binarySearch(array, 4);
 console.log(search);
