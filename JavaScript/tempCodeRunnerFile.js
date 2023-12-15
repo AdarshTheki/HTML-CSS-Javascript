@@ -1,2 +1,0 @@
-   ".trueLength());
-console.log("Ayush 
