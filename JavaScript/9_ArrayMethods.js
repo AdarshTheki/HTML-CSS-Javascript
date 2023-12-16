@@ -59,7 +59,7 @@ const someCheck = age.some((el) => el % 2 === 0); // some Check true or not
 console.log('some:', someCheck);
 
 const heroSort = hero.sort(); // sort Array
-const arrSort = age.sort((a, b) => b - a); 
+const arrSort = age.sort((a, b) => b - a);
 console.log('heroSort', heroSort);
 console.log('arrSort', arrSort);
 

@@ -1,16 +1,16 @@
 // loop :-
 
-for(let index = 0; index < 5; index++){
-  console.log(`index of value is: ${index}`)
+for (let index = 0; index < 5; index++) {
+  console.log(`index of value is: ${index}`);
 }
 
-let heros = ['Adarsh','Ayush','Ankita','Sarita',"Pralhad"]
+let heros = ['Adarsh', 'Ayush', 'Ankita', 'Sarita', 'Pralhad'];
 
-for (let index=0; index<heros.length; index++){
-  let another = []
-  const element  =  heros[index];
+for (let index = 0; index < heros.length; index++) {
+  let another = [];
+  const element = heros[index];
   // console.log(`Hero is ${element}`);
-  another.push(element.toUpperCase())
+  another.push(element.toUpperCase());
   console.log(another);
 }
 // console.log(another); // this terminal not print massage the clear memory.
@@ -32,10 +32,10 @@ for (let index=0; index<heros.length; index++){
 
 for (let i = 0; i < heros.length; i++) {
   const element = heros[i];
-  if(i==2) {
+  if (i == 2) {
     // break;
-    continue; // skip the one iteration 'Ankita' 
+    continue; // skip the one iteration 'Ankita'
   }
   console.log(`New Language ${element}`);
 }
-console.log("I am outside the block :");
+console.log('I am outside the block :');

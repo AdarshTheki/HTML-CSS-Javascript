@@ -17,19 +17,19 @@
 // isEvenOdd(11);
 // console.log(`stop`);
 
-function isPrime(x){
+function isPrime(x) {
   try {
-    console.log("Starting");  
-    for (let i = 2; i < i<=x-1; i++) {
-      if(x%i==0){
-        return "Not Prime"; 
+    console.log('Starting');
+    for (let i = 2; i < x; i++) {
+      if (x % i == 0) {
+        return 'Not Prime';
       }
     }
-    return "Prime";    
+    return 'Prime';
   } catch (err) {
-    console.log("handle", err);    
+    console.log('handle', err);
   } finally {
-    console.log("End");
+    console.log('End');
   }
 }
 isPrime(11);
