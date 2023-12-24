@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- Dynamic List create -->
+        <div id="appendElement"></div>
+
+        <!-- Clicking on a heading expands or collapses content  -->
+        <div>
+            <h2 class="heading">heading 1</h2>
+            <p style="overflow: hidden; font-size: large">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nostrum aliquid ab
+                recusandae quam. Eveniet quisquam vel eum delectus ratione quis nihil, voluptatem id
+                et dolores eligendi, blanditiis at quam?
+            </p>
+        </div>
+        <!-- CountDown Timer -->
+        <p id="timer">Timmers</p>
+
+        <!-- Drag Element -->
+        <div id="dragElement">dragElement</div>
+
+        <!-- Show image with click to next or prev button -->
+        <img src="" alt="" id="showImage" width="50" />
+        <button id="nextImage">next Image</button>
+        <button id="prevImage">prev Image</button>
+
+        <!-- content editable with print -->
+        <div id="editableDiv" contenteditable="true">editable Div</div>
+
+        <!-- Content resizing -->
+        <div id="resizableDiv">resizable Div </div>
+    </body>
+    <script>
+        // 1. Dynamic List:
+        const ul = document.createElement('ul');
+        for (let i = 0; i <= 3; i++) {
+            const li = document.createElement('li');
+            li.textContent = `Items ${i}`;
+            li.style.borderBottom = '1px solid black';
+            ul.appendChild(li);
+        }
+        document.getElementById('appendElement').appendChild(ul);
+
+        // 2. Clicking on a heading expands or collapses content.
+        const headings = document.querySelectorAll('.heading');
+        headings.forEach((heading) => {
+            heading.addEventListener('click', function () {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight !== '16px') {
+                    content.style.maxHeight = '16px';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // 3. Countdown Timer:
+        let seconds = 60;
+        const countdown = setInterval(function () {
+            document.getElementById('timer').textContent = `Timer: ${seconds}`;
+            seconds--;
+            if (seconds < 0) {
+                clearInterval(countdown);
+                alert('time out!');
+            }
+        }, 1000);
+
+        // 4. Drag and Drop: Not properly run
+        const dragElement = document.getElementById('dragElement');
+        dragElement.addEventListener('dragstart', function (event) {
+            event.dataTransfer.setData('text/plain', 'dragged Element');
+        });
+
+        // 5. Image Slider;
+        const images = [
+            'https://rukminim2.flixcart.com/image/312/312/kg8avm80/mobile/r/h/z/apple-iphone-12-dummyapplefsn-original-imafwg8duby8qbn4.jpeg?q=70',
+            'https://rukminim2.flixcart.com/image/312/312/kg8avm80/mobile/q/8/f/apple-iphone-12-dummyapplefsn-original-imafwg8dbzv8vh7t.jpeg?q=70',
+            'https://rukminim2.flixcart.com/image/312/312/ktketu80/mobile/8/z/w/iphone-13-mlph3hn-a-apple-original-imag6vzzhrxgazsg.jpeg?q=70',
+            'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg?q=70',
+        ];
+        let currentImageIndex = 0;
+        const nextImage = document.getElementById('nextImage');
+        const prevImage = document.getElementById('prevImage');
+        function showImages(index) {
+            document.getElementById('showImage').src = images[index];
+        }
+        nextImage.addEventListener('click', function () {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImages(currentImageIndex);
+        });
+        prevImage.addEventListener('click', function () {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImages(currentImageIndex);
+        });
+
+        // 6. Content Editable;
+        const editableDiv = document.getElementById('editableDiv');
+        editableDiv.addEventListener('input', function () {
+            console.log(this.textContent);
+        });
+
+        // 7. Resizing Element;
+        const resizableDiv  = document.getElementById('resizableDiv')
+        const handle = document.getElementById('resizeHandle')
+        handle.addEventListener('mousedown', function(event){
+            event.preventDefault()
+            // soon...
+        })
+    </script>
+</html>
