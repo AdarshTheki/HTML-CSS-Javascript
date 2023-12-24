@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- Text Content -->
+        <div id="textContent"></div>
+        <!-- Toggle buttons to class active -->
+        <button id="btnToggle">toggle</button>
+        <!-- remove element -->
+        <div id="removeMe">remove</div>
+        <!-- change attributes -->
+        <img src="adarsh.jpg" alt="" id="myImage" />
+        <!-- submit form -->
+        <form id="myForm">
+            <button>submit</button>
+        </form>
+        <!-- mouse enter when mouse hove -->
+        <div id="mouseEntered">mouse Enter</div>
+    </body>
+    <script>
+        // change text content
+        const changeText = document.getElementById('textContent');
+        changeText.textContent = 'Hello world';
+
+        // toggle class
+        const toggleBtn = document.getElementById('btnToggle');
+        toggleBtn.addEventListener('click', () => {
+            toggleBtn.classList.toggle('active');
+        });
+
+        // create Element
+        const createDiv = document.createElement('div');
+        createDiv.textContent = 'New Element Paragraph';
+        document.body.appendChild(createDiv);
+
+        // remove Element
+        const removeDiv = document.getElementById('removeMe');
+        removeDiv.parentNode.removeChild(removeDiv);
+
+        // change Attributes
+        const myImage = document.getElementById('myImage');
+        myImage.src = 'second-Image.jpg';
+
+        // form submit
+        const myForm = document.getElementById('myForm');
+        myForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('form Submitted !');
+        });
+
+        // change style:
+        const changeStyle = document.getElementById('btnToggle');
+        changeStyle.style.background = 'lightblue';
+
+        // mouse events
+        const mouseEvent = document.getElementById('mouseEntered');
+        mouseEvent.addEventListener('mouseenter', function () {
+            console.log('mouse entered !');
+        });
+
+        // Inner Html
+        const innerHtmls = document.getElementById('mouseEntered');
+        innerHtmls.innerHTML = `<strong>inner html is here to hover!</strong>`;
+    </script>
+</html>
