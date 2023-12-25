@@ -3,15 +3,20 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>medium question dom manipulations</title>
     </head>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
     <body>
         <!-- Dynamic List create -->
-        <div id="appendElement"></div>
+        <div id="appendElement"><h2>1. Dynamic List</h2></div>
 
         <!-- Clicking on a heading expands or collapses content  -->
         <div>
-            <h2 class="heading">heading 1</h2>
+            <h2 class="heading">2. Expands or collapses content</h2>
             <p style="overflow: hidden; font-size: large">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nostrum aliquid ab
                 recusandae quam. Eveniet quisquam vel eum delectus ratione quis nihil, voluptatem id
@@ -19,21 +24,55 @@
             </p>
         </div>
         <!-- CountDown Timer -->
-        <p id="timer">Timmers</p>
+        <div>
+            <h2>3. Timer</h2>
+            <p id="timer">Timmers</p>
+        </div>
 
         <!-- Drag Element -->
-        <div id="dragElement">dragElement</div>
+        <div id="dragElement"><h2>4. dragElement</h2></div>
 
         <!-- Show image with click to next or prev button -->
-        <img src="" alt="" id="showImage" width="50" />
-        <button id="nextImage">next Image</button>
-        <button id="prevImage">prev Image</button>
+        <div>
+            <h2>5. Images</h2>
+            <img
+                src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg?q=70"
+                alt=""
+                id="showImage"
+                width="50" />
+            <button id="nextImage">next Image</button>
+            <button id="prevImage">prev Image</button>
+        </div>
 
         <!-- content editable with print -->
-        <div id="editableDiv" contenteditable="true">editable Div</div>
+        <div id="editableDiv" contenteditable="true"><h2>6. editable content</h2></div>
 
         <!-- Content resizing -->
-        <div id="resizableDiv">resizable Div </div>
+        <div>
+            <h2>7. content resizing</h2>
+            <p id="resizable-div">resizable Div</p>
+            <p id="resize-handle">resize-handle</p>
+        </div>
+
+        <!-- DropDown Menu -->
+        <div>
+            <h2 id="dropdown-button">8. Dropdown menu click</h2>
+            <ul id="dropdown-menu" class="hidden">
+                <li>Adarsh</li>
+                <li>Ayush</li>
+            </ul>
+        </div>
+
+        <!-- Infinite Scroll: -->
+        <div>
+            <h2>9. Infinite Scroll</h2>
+        </div>
+
+        <!-- Custom Event Handling: -->
+        <div>
+            <h2>10. Custom Event Handling:</h2>
+            <button id="custom-button">custom-button</button>
+        </div>
     </body>
     <script>
         // 1. Dynamic List:
@@ -71,7 +110,7 @@
             }
         }, 1000);
 
-        // 4. Drag and Drop: Not properly run
+        // 4. Drag and Drop: Not properly run:
         const dragElement = document.getElementById('dragElement');
         dragElement.addEventListener('dragstart', function (event) {
             event.dataTransfer.setData('text/plain', 'dragged Element');
@@ -106,11 +145,48 @@
         });
 
         // 7. Resizing Element;
-        const resizableDiv  = document.getElementById('resizableDiv')
-        const handle = document.getElementById('resizeHandle')
-        handle.addEventListener('mousedown', function(event){
-            event.preventDefault()
-            // soon...
-        })
+        const resizableDiv = document.getElementById('resizable-div');
+        const handle = document.getElementById('resize-handle');
+        handle.addEventListener('mousedown', function (event) {
+            event.preventDefault();
+            const initialWidth = resizableDiv.offsetWidth;
+            const initialX = event.clientX;
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', handleMouseMove);
+            });
+            function handleMouseMove(event) {
+                const newWidth = initialWidth + event.clientX - initialX;
+                resizableDiv.style.width = newWidth + 'px';
+            }
+        });
+
+        // DropDown Menu:
+        const dropdownButton = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        dropdownButton.addEventListener('click', function () {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Infinite Scroll:
+        window.addEventListener('scroll', function () {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight)
+                // Load content
+                console.log('loading more content... ');
+        });
+
+        // 10. Custom Event Handling:
+        const customButton = document.getElementById('custom-button');
+        const newEvent = new CustomEvent('new-event', { detail: { name: 'javascript' } });
+        customButton.dispatchEvent(newEvent);
+        // listening event
+        customButton.addEventListener('new-event', (e) => {
+            console.log(e.detail);
+        });
+        function handleEvent(e) {
+            console.log(e.detail);
+        }
+        customButton.addEventListener('new-event', handleEvent);
+        // soon problem...
     </script>
 </html>
