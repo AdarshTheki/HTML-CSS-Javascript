@@ -7,19 +7,47 @@
     </head>
     <body>
         <!-- Text Content -->
-        <div id="textContent"></div>
+        <div>
+            <h2>1. Text content</h2>
+            <p id="textContent"></p>
+        </div>
         <!-- Toggle buttons to class active -->
-        <button id="btnToggle">toggle</button>
+        <div>
+            <h2>2. Toggle button to class</h2>
+            <button id="btnToggle">toggle</button>
+        </div>
+        <!-- create element -->
+        <div>
+            <h2>3. Create element</h2>
+            <div id="create-element"></div>
+        </div>
         <!-- remove element -->
-        <div id="removeMe">remove</div>
+        <div>
+            <h2>4. Remove element</h2>
+            <div id="removeMe">remove</div>
+        </div>
         <!-- change attributes -->
-        <img src="adarsh.jpg" alt="" id="myImage" />
+        <div>
+            <h2>5. Change attributes</h2>
+            <p id="change-attribute">Title here.</p>
+        </div>
         <!-- submit form -->
-        <form id="myForm">
-            <button>submit</button>
-        </form>
-        <!-- mouse enter when mouse hove -->
-        <div id="mouseEntered">mouse Enter</div>
+        <div>
+            <h2>6. Submit Form</h2>
+            <form id="myForm">
+                <button>submit</button>
+            </form>
+        </div>
+        <!-- mouse enter -->
+        <div>
+            <h2>7. Mouse Hover</h2>
+            <p id="mouseEntered">mouse Enter</p>
+        </div>
+        <!-- inner html -->
+        <div>
+            <h2>8. Inner HTML</h2>
+            <p id="inner-html"></p>
+        </div>
     </body>
     <script>
         // change text content
@@ -33,17 +61,18 @@
         });
 
         // create Element
+        const createElement = document.getElementById('create-element');
         const createDiv = document.createElement('div');
         createDiv.textContent = 'New Element Paragraph';
-        document.body.appendChild(createDiv);
+        createElement.appendChild(createDiv);
 
         // remove Element
         const removeDiv = document.getElementById('removeMe');
         removeDiv.parentNode.removeChild(removeDiv);
 
         // change Attributes
-        const myImage = document.getElementById('myImage');
-        myImage.src = 'second-Image.jpg';
+        const myImage = document.getElementById('change-attribute');
+        myImage.title = 'change attribute title is here';
 
         // form submit
         const myForm = document.getElementById('myForm');
@@ -63,7 +92,7 @@
         });
 
         // Inner Html
-        const innerHtmls = document.getElementById('mouseEntered');
+        const innerHtmls = document.getElementById('inner-html');
         innerHtmls.innerHTML = `<strong>inner html is here to hover!</strong>`;
     </script>
 </html>
