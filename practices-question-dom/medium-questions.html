@@ -71,7 +71,7 @@
         <!-- Custom Event Handling: -->
         <div>
             <h2>10. Custom Event Handling:</h2>
-            <button id="custom-button">custom-button</button>
+            <button id="custom-button" onclick="customEventHandle()">click me!</button>
         </div>
     </body>
     <script>
@@ -176,17 +176,17 @@
         });
 
         // 10. Custom Event Handling:
-        const customButton = document.getElementById('custom-button');
-        const newEvent = new CustomEvent('new-event', { detail: { name: 'javascript' } });
-        customButton.dispatchEvent(newEvent);
-        // listening event
-        customButton.addEventListener('new-event', (e) => {
-            console.log(e.detail);
-        });
-        function handleEvent(e) {
-            console.log(e.detail);
+        function customEventHandle() {
+            const customButton = document.getElementById('custom-button');
+
+            const newEvent = new CustomEvent('start', { detail: { name: 'javascript' } });
+            customButton.dispatchEvent(newEvent);
+
+            function handleEvent(event) {
+                alert(event.detail.name);
+            }
+            customButton.addEventListener('start', handleEvent);
+            // customButton.removeEventListener('start', handleEvent);
         }
-        customButton.addEventListener('new-event', handleEvent);
-        // soon problem...
     </script>
 </html>
