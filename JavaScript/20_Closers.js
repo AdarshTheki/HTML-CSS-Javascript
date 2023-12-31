@@ -2,8 +2,8 @@
 
 let score = 0;
 function one() {
-  let score = 1;
-  console.log(score);
+    let score = 1;
+    console.log(score);
 }
 one();
 console.log(score);
@@ -22,20 +22,19 @@ function three() {
 // three();
 
 // Ex:1
-function outerFun () {
-    let OuterValue = "i am Outer Value"
-    function innerValue() {
-        let innerValue = "Inner Value"
-        console.log(innerInnerValue);
-        console.log(OuterValue);
-        
-        function innerOfInnerFun(){
-            let innerInnerValue = "Inner Inner value"
-            console.log(OuterValue);
+function outerFun() {
+    let OuterValue = 'i am Outer Value';
+    function innerFunction() {
+        let innerValue = 'Inner Value';
+        console.log(innerValue, OuterValue);
+
+        function innerOfInnerFun() {
+            let innerInnerValue = 'Inner Inner value';
+            console.log(innerInnerValue, OuterValue);
         }
-        innerOfInnerFun()
+        innerOfInnerFun();
     }
-    innerValue()
+    innerFunction();
 }
 // outerFun();
 
@@ -64,7 +63,7 @@ function numberGenerate() {
         console.log(num);
     }
     num++;
-    return checkNumber
+    return checkNumber;
 }
 let number = numberGenerate();
 number();
