@@ -1,13 +1,53 @@
 /*
 Q. Javascript: 
-    - High-level, 
-    - Interpreted language.  
-    - Create websites, single-page applications, server-side applications, mobile apps.
+define: Javascript is a High-level, Interpreter, single thread language.
+character : scripting & interpreter language, dynamic typing, prototype base object oriented programming. 
+usage : primary used client side, enhanced web page, server side web dev with node.js or mobile app
 
-Q. Event Delegation:
-    - Improve performance
-    - Dynamic Content, simplified code, reduce memory usage.
-Event delegation relies on the concept of event propagation, which includes two phases: capturing and bubbling.
+Q. differ to Java ?
+main used standalone application, mobile app(android), multi-thread, statically typing language. 
+
+Q. what is Event Propagation ? also event delegation ?
+In DOM which events traverse through the hierarchy of elements in the document. 
+
+- Bubbling phase = event traverse the inner element to upper element trigger ( child to parent).
+- target phase = event reaches the target element.
+- Capturing phase = event traverse the outer element to down element trigger ( parent to child).
+
+Event Delegation: It concept of event propagation, used to handle events for multiple child elements.
+
+stopPropagation()      - stop continue to propagate up or down events but ancestor trigger event. 
+immediatePropagation() - only trigger the current event element 
+preventDefault()       - stop the browser's default action
+
+Q. let, const and var differ
+    - "var" is a functional(global) scope, it re-declare variable & reassign value,
+    - "let" is a block scope, Allows re-assign value but not re-declare within the same scope.
+    - "const" is a block scope, it cannot be reassigned/declaration.
+
+Q. Hosting: variable declarations are hoisted, not initialize/assign variable or functions.
+
+Q. Data Types 
+Primitive       = string, number, boolean, null, undefine, bigint, symbol 
+Non-Primitive   = function, array these is all about object.
+
+Q. Type of Object:
+    literal object, constructor object & builtin object 
+
+
+Q. Prototype & Prototypical inheritance ? 
+- Every object has a prototype.
+- Objects inherit properties and methods from their prototypes.
+- Prototypes create a chain, allowing for shared behavior among objects.
+- Object.create() can be used for explicit prototypical inheritance.
+
+
+Q. Shallow and Deep copy difference ? 
+define : Shallow copy of an object to create new object, but copies to top level properties to original object.
+usage : object.assign({}, p), spread operator {...p} & Object.prototype.slice()
+
+define : Deep copy of an object to create new object, copies all nested properties of the original object.
+usage :  JASON.pase(JASON.stringify()), structuredClone() and lodash libraries used 
 */
 
 // search DOM
@@ -196,7 +236,7 @@ function callbackFunction() {
     console.log('Callback executed!');
 }
 
-// 7. Higher-Order Functions: that take other functions as arguments
+// 7. Higher-Order Functions: that take one or more functions as arguments / return new functions.
 // Abstract common patterns or functional programming enable operation map, filter...
 function multiplyBy(factor) {
     return function (number) {
@@ -206,17 +246,19 @@ function multiplyBy(factor) {
 const double = multiplyBy(2);
 console.log(double(5)); // Output: 10
 
-// 8. Closures: A closure is a function with preserved data:
+// 8. Closures and scope:
+// closure is inner function access the outer function variable and parameter, and his return. 
+// scope is to limit access to certain variable to specific area. 
 function outerFunction(outerValue) {
     return function innerFunction(innerValue) {
-        console.log(outerValue + innerValue); // to access variables from the parent scope
+        console.log(outerValue + innerValue); // to access variables from the parent scope[lexical scope]
     };
 }
 const closure = outerFunction(10);
 closure(5); // Output: 15
 
 // 9. Immediately Invoked Function Expressions (IIFE):
-// Avoiding Global Scope Pollution or Create Private Scopes
+// Avoiding Global Scope Pollution or create Private Scopes
 (function () {
     console.log('IIFE executed!');
 })();
@@ -226,59 +268,18 @@ const curriedAdd = (x) => (y) => x + y;
 console.log(curriedAdd(2)(3)); // Output: 5
 
 /*
-Q. Arrow Function:
-    - don't have their own 'this' context
-    - don't have their own 'arguments' object
-    - don't have their 'new' keyword to create instances
+Q. Arrow Function Vs Regular Function:
+    - Maintain LEXICAL SCOPE on 'this' available in arrow function.
+    - Create construction function using regular function. 
+    - Used 'arguments' object in regular function or 
+    - Used 'new' keyword to create instances in regular function
 */
-
-// ------------------------------------------------------------------- //
-
-/*
-Q. Explain 'this' keywords ? also explain call, apply and bind method ?
-    All are used to invoke a function with a specified 'this' value
-    - 'this' means  current execution context
-    - 'call' takes individual argument
-    - 'apply' takes arguments as an array
-    - 'bind' create new function with fixed "this" value
-*/
-
-const person = { name: 'Adarsh' };
-function greet(greeting) {
-    console.log(`${greeting}, ${this.name}!`);
-}
-greet.call(person, 'Hi'); // Hi, Adarsh!
-greet.apply(person, ['Hola']); // Hola, Adarsh!
-const greedPerson = greet.bind(person);
-greedPerson('Hello'); // Hello, Adarsh!
-
-// ---------------------------------------------- //
-
-/* 
-Q. Prototype & Prototypical inheritance ? 
-Every object in JavaScript has a prototype, and objects can inherit properties and methods from their prototypes.
-- Every function has a prototype property.
-- Objects inherit properties and methods from their prototypes.
-- Prototypes create a chain, allowing for shared behavior among objects.
-- Object.create() can be used for explicit prototypical inheritance.
-*/
-// Constructor function
-function Animal(name) {
-    this.name = name;
-}
-// Adding a method to the prototype
-Animal.prototype.sayHello = function () {
-    console.log(`Hello, I'm ${this.name}`);
-};
-// Creating objects using the constructor
-const cat = new Animal('Cat');
-cat.sayHello(); // Output: Hello, I'm Cat
-
-// ------------------------------------------------------ //
 
 /* 
 Q. Event Loop:
-Firstly add to call stack function or method and execute, In which delay data to push "wEB API" and separated data to Job/Task queue and execute.
+- The event loop constantly checks two things: the call stack and the event queue.
+- If the call stack is empty, the event loop takes the first event from the queue and pushes it onto the call stack, making it the current operation.
+- The event loop continues this process, ensuring that the call stack is always empty before processing the next event from the queue.
 
 Web API: (Separate Data Execute)
 1. Job Queue:(Micro tasks - first run) 
@@ -290,6 +291,28 @@ Web API: (Separate Data Execute)
     - setTimeout()
     - setinterval()
     - setImmediate()
+
+
+Q. Explain 'this' keywords ? also explain call, apply and bind method ?
+
+
+
+    All are used to invoke a function with a specified 'this' value
+    - 'this' means  current execution context
+    - 'call' takes individual argument
+    - 'apply' takes arguments as an array
+    - 'bind' create new function with fixed "this" value
+
+const person = { name: 'Adarsh' };
+function greet(greeting) {
+    console.log(`${greeting}, ${this.name}!`);
+}
+greet.call(person, 'Hi'); // Hi, Adarsh!
+greet.apply(person, ['Hola']); // Hola, Adarsh!
+const greedPerson = greet.bind(person);
+greedPerson('Hello'); // Hello, Adarsh!
+
+
 
 Q. Critical Rendering Path (CRP):
     - CRP involves HTML parsing, CSS parsing, layout calculations, and painting.
