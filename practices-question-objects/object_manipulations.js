@@ -54,3 +54,10 @@ function objectMerging(obj1, obj2) {
 function objectAccess(obj, path) {
     return path.split('.').reduce((acc, key) => acc && acc[key], obj);
 }
+
+// convert array to object
+const arr = ['a', 'b', 'c', 'd'];
+let obj = arr.reduce((acc, it, index) => ({ ...acc, [index]: it }), {});
+console.log(obj);
+// { '0': 'a', '1': 'b', '2': 'c', '3': 'd' }
+
