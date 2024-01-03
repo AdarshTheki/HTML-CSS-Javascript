@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="parent">
+            <button class="child">Click Me!</button>
+        </div>
+        <script>
+            // Event Propagation there are three Phase, event bubbling, target & capturing.
+
+            // bubbling - Trigger child element to move parent element
+            // target - event reaches the target element
+            // capturing - Trigger parent element to move child element
+
+            // Stop Propagation - stop continue to propagate up or down events but ancestor trigger event.
+            // Immediate Propagation - only trigger current element.
+            // Prevent Default - stop default behavior browser.
+
+            const parent = document.querySelector('.parent');
+            const child = document.querySelector('.child');
+
+            parent.addEventListener('click', () => {
+                console.log('parent clicked !');
+            });
+
+            child.addEventListener('click', (event) => {
+                // event.stopPropagation()              // stop up/down events
+                // event.stopImmediatePropagation()     // stop up/down or ancestor events
+                // event.preventDefault()               // stop default behvior
+                console.log('child button clicked !');
+            });
+
+            child.addEventListener('click', (event) => {
+                console.log('child Another handler button clicked !');
+            });
+        </script>
+    </body>
+</html>
