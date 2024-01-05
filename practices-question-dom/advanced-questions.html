@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                height: 100vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container {
+                overflow: hidden;
+                max-width: 600px;
+                display: flex;
+                gap: 10px;
+                padding: 10px;
+                border: 1px solid #333;
+                border-radius: 1vmax;
+            }
+            .item {
+                min-width: 100px;
+                height: 100px;
+                border-radius: 1vmax;
+                background: #666;
+            }
+            .main {
+                position: relative;
+            }
+            #left,
+            #right {
+                position: absolute;
+                top: 50%;
+            }
+            #left {
+                left: 0;
+            }
+            #right {
+                right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="container">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+                <div class="item">7</div>
+                <div class="item">8</div>
+                <div class="item">9</div>
+                <div class="item">10</div>
+                <div class="item">11</div>
+                <div class="item">12</div>
+            </div>
+            <button id="left">Left ←</button>
+            <button id="right">right →</button>
+        </div>
+
+        <script type="text/javascript">
+            const container = document.querySelector('.container');
+            const leftBtn = document.querySelector('#left');
+            const rightBtn = document.querySelector('#right');
+
+            leftBtn.addEventListener('click', () => sideScroll(container, 'left'));
+            rightBtn.addEventListener('click', () => sideScroll(container, 'right'));
+            function sideScroll(container, direction) {
+                const scrollAmount = direction === 'left' ? -220 : 220;
+                container.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth',
+                });
+                console.log(scrollAmount)
+            }
+        </script>
+    </body>
+</html>
