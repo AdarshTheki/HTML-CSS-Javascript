@@ -13,7 +13,9 @@
 
 ### Hosting:
 
-variable declarations are hoisted, not initialize/assign variable or functions.
+Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed
+
+Note : variable declarations are hoisted, not initialize/assign variable or functions.
 
 ### Data Types:
 
@@ -28,16 +30,16 @@ Object is a collection of data & properties with key/ value formate.
 -   Constructor Object
 -   Built-in Object
 
-### Prototypical Inheritance:
+### prototypal inheritance:
 
 -   Every object has a prototype properties.
 -   It objects inherit properties and methods from their prototypes.
 -   Prototypes create a chain, allowing for shared behavior among objects.
--   `Object.create()` can be used for explicit prototypical inheritance.
+-   `Object.create()` can be used for explicit prototypal inheritance.
 
 ### Class:
 
-a class is a blueprint or template for creating objects
+A class is a blueprint or template for creating objects
 
 ```js
 class Person {
@@ -47,7 +49,7 @@ class Person {
     }
     // method
     sayHello() {
-        console.log(`Hello, my name is ${this.name} and I am ${this.age}`);
+        console.log(`Hello, ${this.name} and I am ${this.age}`);
     }
 }
 const client = new Person('Adarsh', 20); // create instance of class person
@@ -56,12 +58,11 @@ client.sayHello(); // call method
 
 ### `this` keyword ? call, apply and bind method ?
 
-All are used to invoke a function with a specified 'this' value
+`this` means current execution context within a function. You can explicitly set the value of `this` using method like `call()`, `apply()` and `bind()`.
 
--   `this` means current execution context
 -   `call` takes individual argument
 -   `apply` takes arguments as an array
--   `bind` create new function with fixed "this" value
+-   `bind` create a new function that, when called, has a specified `this` value and initial arguments.
 
 ```js
 const person = { name: 'Adarsh' };
@@ -121,13 +122,13 @@ new Set(), add(), delete(), has(), size(), clear()
 ### Function(types):
 
 1. Function declaration / normal function
-2. Function expression (function assign with variable)
+2. Function expression (function assign in variable)
 3. Arrow function in ES6
 4. Function Parameters and Default Values
 5. Rest Parameters and Spread Operator
 
-6. Callback Functions:
-   commonly used to asynchronous operation such as data fetching, file reading, event handling
+6. **Callback Functions:**
+   Function is passed as an argument to another function and executed later. Commonly used to asynchronous operation such as data fetching, file reading, event handling
 
 ```js
 function doSomething(callback) {
@@ -139,21 +140,21 @@ function callbackFunction() {
 }
 ```
 
-7. Higher-Order Functions:
+7. **Higher-Order Functions:**
    That take one or more functions as arguments / return new functions.\
    Abstract common patterns or functional programming enable operation map, filter...etc.
 
 ```js
 function multiplyBy(factor) {
-return function (number) {
-return number \* factor;
-};
+    return function (number) {
+        return number \* factor;
+    };
 }
 const double = multiplyBy(2);
 console.log(double(5)); // Output: 10
 ```
 
-8. Closures function:
+8. **Closures function:**
    closure is inner function access to the outer function scope, and also return.
 
 ```js
@@ -166,25 +167,33 @@ const closure = outerFunction(10);
 closure(5); // Output: 15
 ```
 
-9. Immediately Invoked Function Expressions (IIFE):
+9. **Immediately Invoked Function Expressions (IIFE)**:
    Avoiding Global Scope Pollution or create Private Scopes
 
-10. Currying Functions : A function each taking a single parameter.
+10. **Currying Functions:** Function is transformed into a sequence of functions, each taking a single argument.
+
 ```js
-    const curriedAdd = (x) => (y) => x + y;
-    console.log(curriedAdd(2)(3)); // Output: 5
+const curriedAdd = (x) => (y) => x + y;
+console.log(curriedAdd(2)(3)); // Output: 5
+
+function curriedOuter(x) {
+    function curriedInner(y) {
+        return x + y;
+    }
+}
+console.log(curriedOuter(2)(3)); // Output: 5
 ```
 
 ## Arrow Function Vs Regular Function:
 
--   Maintain LEXICAL SCOPE on 'this' available in arrow function.
--   Create construction function using regular function.
--   Used 'arguments' object in regular function or
--   Used 'new' keyword to create instances in regular function
+-   Maintain `lexical scope` on `this` available in arrow function.
+-   Create `construction` function using regular function.
+-   Used `arguments` object in regular function or
+-   Used `new` keyword to create instances in regular function
 
 ### Event Loop:
 
--   The event loop constantly checks two things: the call stack and the event queue.
+-   The event loop constantly checks two things: the `call stack` and the `event queue`.
 -   If the call stack is empty, the event loop takes the first event from the queue and pushes it onto the call stack, making it the current operation.
 -   The event loop continues this process, ensuring that the call stack is always empty before processing the next event from the queue.
 
@@ -194,32 +203,84 @@ Web API: (Separate Data Execute)
     - process.nextTick(),
     - Promise callback,
     - async function,
-    - Queue Microtask,
+    - Queue MicroTask,
 2. Task Queue:(Macro tasks - second run)
     - setTimeout()
-    - setinterval()
+    - setInterval()
     - setImmediate()
 
 ### Critical Rendering Path (CRP):
 
--   CRP involves HTML parsing, CSS parsing, layout calculations, and painting.
+-   CRP involves HTML parsing and DOM construct, CSS parsing, layout calculations, and painting.
 -   Optimizing the Render Tree, CSS, and JavaScript is essential for faster rendering.
 -   Minification, compression, and image optimization contribute to improved performance.
 
-### Debounce:
+### Optimizing the performance:
 
-Use when you want to delay a function until a quiet period, such as with input fields or search functionality.
-
-### Throttle:
-
-Use when you want to limit the rate at which a function is called, such as with scroll or resize events.
+1. **Minification and Compression:** Remove unnecessary whitespace, comments, and rename variables
+2. **Bundle and Code Splitting:** Bundle multiple JavaScript files into a single file.
+3. **lazy loading:** Use lazy loading for images, scripts, and other assets. Delay the loading of non-essential resources until they are needed.
+4. **Async and Defer Attributes:** `async` allows scripts to be downloaded asynchronously without blocking HTML parsing. `defer` ensures scripts are executed in order after HTML parsing.
+5. **Critical Path Rendering:** Minimize the number of render-blocking resources, such as CSS and JavaScript files.
+6. **Optimized Images:** Compress and optimize images to reduce their file size. Employ lazy loading for images to defer loading until they are about to be displayed
+7. **Service Workers:** Implement service workers to enable background tasks, caching, and offline capabilities.
+8. **Reduce DOM Manipulation:** Minimize direct DOM manipulation, as it can be a performance bottleneck. Use efficient DOM manipulation techniques, such as document fragment or virtual DOM, to optimize updates.
+9. **Throttle and Debounce:** `Throttling` ensures a function is not executed more than once in a specified time period, while `debouncing` delays the execution until a specified time has passed since the last invocation.
+10. **Optimize Network Requests:** Use a content delivery network (CDN) to serve static assets from servers located closer to the user.
+11. **Memory Management:** Be mindful of memory leaks by cleaning up event listeners, removing references to unused objects, and avoiding unnecessary global variables.
+12. **Preconnect and Prefetch:** Use the <link> tag with `rel="preconnect"` to initiate early connections to third-party domains. Utilize <link> with `rel="prefetch"` to fetch and cache resources that will be needed in the future.
+13. **Performance Monitoring:** Use performance monitoring tools and browser developer tools to identify bottlenecks and areas for improvement.
+14. **Caching:** Explore service workers for client-side caching and offline capabilities.
 
 ### Promise:
 
 The eventual completion (or failure) of an asynchronous operation and its resulting value.
 
--   Parallel Requests : const [result1, result2] = await Promise.all([promise1, promise2])
--   Sequential Requests: chaining promise using .then()
+-   Parallel Requests : `const [result1, result2] = await Promise.all([promise1, promise2])`
+-   Sequential Requests: chaining promise using `.then().then().catch()`
+
+```js
+    // creating a promise:
+    const myPromise = new Promise((resolve, reject)){
+        if(true){
+            resolve('operation complete success')
+        }else{
+            reject('operation failed')
+        }
+    }
+    // handle a promise with then() or catch()
+    myPromise
+        .then(result => console.log(result))
+        .catch(err => console.log(err))
+
+    // handle multiple promise
+    const promise1 = fetchData();
+    const promise2 = fetchData();
+    Promise.all([promise1, promise2])
+        .then([result1,result2] => console.log(result1, result2))
+```
+
+### CORS (Cross-Origin Resource Sharing):
+
+Web browsers to restrict web pages from making requests to a different domain than the one that served the web page.
+
+1. **Access-Control-Allow-Origin:** https://allowed-origin.com
+2. **Access-Control-Allow-Methods:** GET, POST, PUT, DELETE
+3. **Access-Control-Allow-Headers:** Content-Type, Authorization
+4. **Access-Control-Allow-Credentials:** true
+5. **Access-Control-Expose-Headers:** Content-Length, X-Content-Range
+
+```js
+fetch('https://api.example.com/data', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer token',
+    },
+})
+    .then((res) => res.json())
+    .catch((err) => console.error(err));
+```
 
 ```js
 const element = document.getElementById('demo');
