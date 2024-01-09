@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Infinity scrolling</title>
+        <style>
+            .card-container {
+                display: grid;
+                justify-content: center;
+                position: relative;
+            }
+            .card-container > * {
+                /* max-width: 100px; */
+                border-radius: 1vmax;
+                padding: 10px;
+                font-size: 2rem;
+                margin-bottom: 10px;
+                border: 1px solid #333;
+            }
+            .card {
+                background: #ddd;
+            }
+            .card-container > .show {
+                background: #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card-container">
+            <div class="card">This is a first card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a card.</div>
+            <div class="card">This is a last card.</div>
+        </div>
+        <script>
+            const cards = document.querySelectorAll('.card');
+            const cardContainer = document.querySelector('.card-container');
+
+            // Infinite Scroll:
+            let data = 0;
+            window.addEventListener('scroll', () => {
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                    // Load content
+                    console.log('loading more content... ');
+                    const div = document.createElement('div');
+                    div.classList.add('cards');
+                    div.innerHTML = `this is cart importing ${data}`;
+                    cardContainer.appendChild(div);
+                    data++;
+                }
+            });
+        </script>
+    </body>
+</html>
