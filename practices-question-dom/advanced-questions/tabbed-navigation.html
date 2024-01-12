@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                max-width: 500px;
+                margin: 20px auto;
+            }
+            .tabs {
+                display: flex;
+                list-style: none;
+                padding: 0;
+            }
+            .tab {
+                cursor: pointer;
+                padding: 10px;
+                margin-right: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px 5px 0 0;
+                background-color: #f4f4f4;
+                transition: background-color 0.3s ease-in-out;
+            }
+            .tab:hover {
+                background-color: #e0e0e0;
+            }
+            .tab.active {
+                background-color: #007bff;
+                color: #fff;
+            }
+            .tab-content {
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 0 0 5px 5px;
+                display: none;
+            }
+            .tab-content.active {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="tabs">
+            <li onclick="handleClicked(event)" data-tab="tab1" class="tab active">Tab 1</li>
+            <li onclick="handleClicked(event)" data-tab="tab2" class="tab">Tab 2</li>
+            <li onclick="handleClicked(event)" data-tab="tab3" class="tab">Tab 3</li>
+        </ul>
+        <div class="tab-content active" id="tab1">
+            <p>This is content of Tab 1</p>
+        </div>
+        <div class="tab-content" id="tab2">
+            <p>This is content of Tab 2</p>
+        </div>
+        <div class="tab-content" id="tab3">
+            <p>This is content of Tab 3</p>
+        </div>
+        <div class="tab-content" id="tab4">
+            <p>This is content of Tab 4</p>
+        </div>
+
+        <script>
+            function handleClicked(event) {
+                const clickedTab = event.target;
+                const tabId = clickedTab.dataset.tab;
+
+                // remove 'active' class
+                document.querySelectorAll('.tab, .tab-content').forEach((element) => {
+                    element.classList.remove('active');
+                });
+
+                // Adding 'active' class
+                clickedTab.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            }
+        </script>
+    </body>
+</html>
