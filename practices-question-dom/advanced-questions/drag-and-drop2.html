@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Drag and Drop</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            .container {
+                width: 300px;
+                margin: 0 auto;
+                display: grid;
+                list-style: none;
+                padding: 0;
+                transition: all 0.5s ease-in-out !important;
+            }
+            .item {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                border: 1px solid #333;
+                border-radius: 1vmax;
+                padding: 10px;
+                margin: 5px;
+                cursor: grab;
+                text-align: center;
+            }
+            .item:hover {
+                background-color: rgb(156, 204, 255);
+            }
+            .item:active {
+                /* cursor: grabbing; */
+                cursor: no-drop;
+            }
+            .item.dragging :where(.item h2) {
+                opacity: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="container" id="draggable-container">
+            <li class="item" draggable="true" data-index="1">
+                <h2>Item 1</h2>
+                <strong>: :</strong>
+            </li>
+            <li class="item" draggable="true" data-index="2">
+                <h2>Item 2</h2>
+                <strong>: :</strong>
+            </li>
+            <li class="item" draggable="true" data-index="3">
+                <h2>Item 3</h2>
+                <strong>: :</strong>
+            </li>
+            <li class="item" draggable="true" data-index="4">
+                <h2>Item 4</h2>
+                <strong>: :</strong>
+            </li>
+            <li class="item" draggable="true" data-index="5">
+                <h2>Item 5</h2>
+                <strong>: :</strong>
+            </li>
+        </ul>
+
+        <script>
+            const items = document.querySelectorAll('.item');
+            const container = document.querySelector('.container');
+
+            items.forEach((item) => {
+                item.addEventListener('dragstart', () => {
+                    setTimeout(() => item.classList.add('dragging'), 0);
+                });
+                item.addEventListener('dragend', () => item.classList.remove('dragging'));
+            });
+
+            container.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                const draggingItem = container.querySelector('.dragging');
+
+                // current dragging element
+                const siblings = [...container.querySelectorAll('.item:not(.dragging)')];
+                const nextSiblings = siblings.find((sibling) => {
+                    return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
+                });
+
+                container.insertBefore(draggingItem, nextSiblings);
+            });
+        </script>
+    </body>
+</html>

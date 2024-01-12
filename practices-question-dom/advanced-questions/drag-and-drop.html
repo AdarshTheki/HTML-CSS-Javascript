@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Drag and Drop</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            .container {
+                display: grid;
+                list-style: none;
+                padding: 0;
+                transition: all 0.5s ease-in-out !important;
+            }
+            .item {
+                display: block;
+                padding: 10px;
+                border: 1px solid #333;
+                border-radius: 1vmax;
+                background-color: rgb(111, 181, 255);
+                color: #fff;
+                padding: 10px;
+                margin: 5px;
+                cursor: grab;
+            }
+            .item:hover {
+                background-color: #0056b3;
+            }
+            .item:active {
+                cursor: grabbing;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="container" id="draggable-container">
+            <li class="item" draggable="true" data-index="1"><h2>Item 1</h2></li>
+            <li class="item" draggable="true" data-index="2"><h2>Item 2</h2></li>
+            <li class="item" draggable="true" data-index="3"><h2>Item 3</h2></li>
+            <li class="item" draggable="true" data-index="4"><h2>Item 4</h2></li>
+            <li class="item" draggable="true" data-index="5"><h2>Item 5</h2></li>
+        </ul>
+
+        <script>
+            const container = document.getElementById('draggable-container');
+            let draggedItem = null;
+
+            // store the dragged item's index.
+            container.addEventListener('dragstart', (e) => {
+                draggedItem = e.target;
+                e.dataTransfer.setData('plain/text', e.target.dataset.index);
+            });
+
+            // determine the position where drop and update
+            container.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                const targetItem = getDragAfterElement(container, e.clientY);
+                const index = targetItem ? targetItem.dataset.index : container.children.length;
+                container.insertBefore(draggedItem, targetItem);
+                draggedItem.dataset.index = index;
+            });
+
+            function getDragAfterElement(container, y) {
+                const items = [...container.querySelectorAll('.item:not(.dragging)')];
+                return items.reduce(
+                    (closest, child) => {
+                        const box = child.getBoundingClientRect();
+                        const offset = y - box.top - box.height / 2;
+                        if (offset < 0 && offset > closest.offset) {
+                            return { offset, element: child };
+                        }
+                        return closest;
+                    },
+                    { offset: Number.NEGATIVE_INFINITY }
+                ).element;
+            }
+
+            // reset the draggedItem
+            container.addEventListener('dragend', () => (draggedItem = null));
+        </script>
+    </body>
+</html>
