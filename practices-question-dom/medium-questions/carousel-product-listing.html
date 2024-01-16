@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>product listings slider</title>
+        <style>
+            .main {
+                position: relative;
+                width: 600px;
+                margin: 100px auto;
+            }
+            .container {
+                display: flex;
+                gap: 10px;
+                border: 1px solid #000;
+                padding: 50px;
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+            }
+            .item {
+                min-width: 100px;
+                min-height: 100px;
+                border-radius: 1vmax;
+                text-align: center;
+                font-weight: 600;
+                color: #222;
+                background-color: #eee;
+                scroll-snap-align: start;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+            }
+            .leftBtn {
+                position: absolute;
+                top: 50%;
+                left: -50px;
+            }
+            .rightBtn {
+                position: absolute;
+                top: 50%;
+                right: -50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="container">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+                <div class="item">7</div>
+                <div class="item">8</div>
+                <div class="item">9</div>
+                <div class="item">10</div>
+                <div class="item">11</div>
+                <div class="item">12</div>
+                <div class="item">13</div>
+                <div class="item">14</div>
+                <div class="item">15</div>
+            </div>
+            <button class="leftBtn">left arrow</button>
+            <button class="rightBtn">right arrow</button>
+        </div>
+        <script>
+            const container = document.querySelector('.container');
+            const leftBtn = document.querySelector('.leftBtn');
+            const rightBtn = document.querySelector('.rightBtn');
+
+            leftBtn.addEventListener('click', () => onScrolling(container, 'left'));
+            rightBtn.addEventListener('click', () => onScrolling(container, 'right'));
+
+            function onScrolling(container, direction) {
+                const scrollingAmount = direction === 'left' ? -200 : 200;
+                container.scrollBy({
+                    left: scrollingAmount,
+                    behavior: 'smooth',
+                });
+            }
+        </script>
+    </body>
+</html>

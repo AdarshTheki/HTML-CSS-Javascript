@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image Carousel</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            #carousel {
+                width: 300px;
+                border: 1px solid black;
+                margin: 0 auto;
+                overflow: hidden;
+                position: relative;
+            }
+            .image-container {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+            .image {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 24px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+            }
+            #prev {
+                left: 10px;
+            }
+            #next {
+                right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="carousel">
+            <div class="image-container" id="imageContainer">
+                <img class="image" src="https://avatars.githubusercontent.com/u/17?v=4" alt="Image 1" />
+                <img class="image" src="https://avatars.githubusercontent.com/u/18?v=4" alt="Image 1" />
+                <img class="image" src="https://avatars.githubusercontent.com/u/19?v=4" alt="Image 1" />
+                <img class="image" src="https://avatars.githubusercontent.com/u/20?v=4" alt="Image 1" />
+                <img class="image" src="https://avatars.githubusercontent.com/u/21?v=4" alt="Image 1" />
+                <!-- Add more images as needed -->
+            </div>
+
+            <button id="prev" onclick="prevImage()">&#10094;</button>
+            <button id="next" onclick="nextImage()">&#10095;</button>
+        </div>
+
+        <script>
+            let currentIndex = 0;
+            const totalImages = document.querySelectorAll('.image').length;
+            const imageContainer = document.getElementById('imageContainer');
+
+            function showImage(index) {
+                currentIndex = index;
+                const translateValue = -100 * index + '%';
+                imageContainer.style.transform = 'translateX(' + translateValue + ')';
+                console.log(translateValue)
+            }
+
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % totalImages;
+                showImage(currentIndex);
+            }
+
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                showImage(currentIndex);
+            }
+        </script>
+    </body>
+</html>
