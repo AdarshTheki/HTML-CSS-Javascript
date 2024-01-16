@@ -1,50 +1,53 @@
 ## Website how Works ?
 
-- ### Static website:
+### Static website:
 
-  > _Content not change a lot._
+**_Content not change a lot._**
 
-  - **Advantages:** Simplicity, Speed, Scalability , Security, Cost effectiveness
+-   **Advantages:** Simplicity, Speed, Scalability , Security, Cost effectiveness
 
-  - **Disadvantages:** Limited functionality, Lack of flexibility, No user interaction, Not good for complex
+-   **Disadvantages:** Limited functionality, Lack of flexibility, No user interaction, Not good for complex
 
-- ### Static Content:
-  - HTML page.
-  - Image, Audio, Video file.
-  - Static online form.
-  - Download _(Software, Document, Spreadsheet)_
+-  **Static Content:**
 
----
-
-- ### Dynamic website:
-
-  > _It's provide dynamic and interactive functionality to user and it like searching data in database, Submit form data display custom content etc._
-
-  - **Advantages:** Flexibility, Scalability, User Interaction, Better SEO, Advanced Functionality
-  - **Disadvantages:** A lot of overhead for simple Application, Require more cost for developments and implementation, Complex to implement.
-
-- ### Dynamic Content:
-  - Database, User account info.
-  - Translated web page, Text.
-  - Video and Voice massaging apps.
-  - Real-time data _(Weather forecasting, Health data, Stock data)_.
+    -   HTML page.
+    -   Image, Audio, Video file.
+    -   Static online form.
+    -   Download _(Software, Document, Spreadsheet)_
 
 ---
 
-- ### Client Server:
+### Dynamic website:
 
-  "Which are used to access and display web page and other content." Such as Microsoft Edge, Google Chrome, Mozilla Firefox.
+**_It's provide dynamic and interactive functionality to user and it like searching data in database, Submit form data display custom content etc._**
 
-  > **\*Question:** Explain - Internet, Web Browser, Browser engine, Static and Dynamic sites.\*
+-   **Advantages:** Flexibility, Scalability, User Interaction, Better SEO, Advanced Functionality
+-   **Disadvantages:** A lot of overhead for simple Application, Require more cost for developments and implementation, Complex to implement.
+
+* **Dynamic Content:**
+
+  -   Database, User account info.
+  -   Translated web page, Text.
+  -   Video and Voice massaging apps.
+  -   Real-time data _(Weather forecasting, Health data, Stock data)_.
 
 ---
 
-- ### UI: (User Interface)
+### Client Server:
 
-  _UI designers are graphic designers specialized in creating web components. Button, Image, Text fields, Dropdown etc._
+"Which are used to access and display web page and other content." Such as Microsoft Edge, Google Chrome, Mozilla Firefox.
 
-- ### UX: ()
-  _Is the experience smooth and intuitive or clunky and confusing ? Does navigating the app fel logical or does it feel arbitrary ?_
+**Question:** Explain - Internet, Web Browser, Browser engine, Static and Dynamic sites.
+
+---
+
+### UI: (User Interface)
+
+UI designers are graphic designers specialized in creating web components. Button, Image, Text fields, Dropdown etc.
+
+### UX: (User Experience)
+
+Is the experience smooth and intuitive or clunky and confusing ? Does navigating the app fel logical or does it feel arbitrary ?
 
 ## How to Networks Work ? :
 
@@ -64,11 +67,11 @@
 
 8. **Protocol:** A protocol is a set of rules and standards that governs how data is transmitted, received, and processed in a network.
 
-   `Examples:` include TCP/IP (Transmission Control Protocol/Internet Protocol) and HTTP (Hypertext Transfer Protocol).
+    `Examples:` include TCP/IP (Transmission Control Protocol/Internet Protocol) and HTTP (Hypertext Transfer Protocol).
 
 9. **Bandwidth**: The maximum data transfer rate of a network or internet connection.
 
-10. **LAN** (Local Area Network): such as usedin a home, office, or school.
+10. **LAN** (Local Area Network): such as used in a home, office, or school.
 
 11. **WAN** (Wide Area Network): often spanning multiple locations.
 
