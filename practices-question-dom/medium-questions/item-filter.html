@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Item Filter</title>
+        <style>
+            label {
+                margin-right: 10px;
+            }
+            select {
+                margin-bottom: 20px;
+            }
+            .item {
+                display: none;
+                margin-bottom: 10px;
+            }
+            .active {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <label for="categoryFilter">Filter by Category:</label>
+        <select id="categoryFilter" onchange="filterItems()">
+            <option value="all">All</option>
+            <option value="category1">Category 1</option>
+            <option value="category2">Category 2</option>
+            <option value="category3">Category 3</option>
+        </select>
+
+        <div id="itemList">
+            <div class="item category1">Item 1 (Category 1)</div>
+            <div class="item category2">Item 2 (Category 2)</div>
+            <div class="item category1">Item 3 (Category 1)</div>
+            <div class="item category3">Item 4 (Category 3)</div>
+            <!-- Add more items with different categories as needed -->
+        </div>
+
+        <script>
+            function filterItems() {
+                const selectedCategory = document.getElementById('categoryFilter').value;
+                const items = document.querySelectorAll('.item');
+
+                items.forEach((item) => {
+                    const itemCategory = item.classList.item(1); // Assumes each item has only one category
+                    if (selectedCategory === 'all' || selectedCategory === itemCategory) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dropdown-menu</title>
+        <style>
+            .menu {
+                text-align: center;
+                width: 300px;
+                margin: 150px auto;
+            }
+            .select-btn {
+                font-size: 1.2rem;
+                cursor: pointer;
+                border: 1px solid black;
+            }
+            .options {
+                position: relative;
+                margin-top: 20px;
+                background: #fff;
+                list-style: none;
+                /* none */
+                display: none;
+            }
+            .menu.active .options {
+                display: block;
+            }
+            .list {
+                margin-bottom: 0.6rem;
+                cursor: pointer;
+            }
+            .list:hover {
+                background: #aaa;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="menu">
+            <div class="select-btn">
+                <span class="text">select your options</span>
+            </div>
+            <ul class="options">
+                <li class="list">Github</li>
+                <li class="list">Github 1</li>
+                <li class="list">Github 2</li>
+                <li class="list">Github 3</li>
+            </ul>
+        </div>
+        <script>
+            const optionMenu = document.querySelector('.menu');
+            const selectBtn = optionMenu.querySelector('.select-btn');
+            const lists = optionMenu.querySelectorAll('.list');
+            const text = optionMenu.querySelector('.text');
+
+            selectBtn.addEventListener('click', () => optionMenu.classList.toggle('active'));
+
+            lists.forEach((option) => {
+                option.addEventListener('click', (e) => {
+                    text.innerHTML = option.innerHTML;
+                    optionMenu.classList.toggle('active');
+                });
+            });
+        </script>
+    </body>
+</html>
