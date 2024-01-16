@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>load more content</title>
+    </head>
+    <body>
+        <div class="product-container" id="productContainer">
+            <!-- Initial set of product items -->
+            <!-- You can replace this with your actual product items -->
+            <div class="product-item">Product 1</div>
+            <div class="product-item">Product 2</div>
+            <div class="product-item">Product 3</div>
+        </div>
+
+        <div class="load-more-container">
+            <button class="load-more-btn" onclick="loadMoreProducts()">Load More</button>
+        </div>
+        <script>
+            const productContainer = document.getElementById('productContainer');
+            let currentPage = 1;
+            
+            function loadMoreProducts() {
+                // Simulate fetching more products from a server or database
+                const newProducts = [
+                    `<div class="product-item">Product ${++currentPage * 3 - 2}</div>`,
+                    `<div class="product-item">Product ${currentPage * 3 - 1}</div>`,
+                    `<div class="product-item">Product ${currentPage * 3}</div>`,
+                ];
+
+                // Append the new products to the product container
+                productContainer.innerHTML += newProducts.join('');
+            }
+        </script>
+    </body>
+</html>
