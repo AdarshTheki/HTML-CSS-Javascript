@@ -5,22 +5,48 @@
 -   **Usage:** primary used client side, enhanced web page, server side web dev with node.js or mobile app.
 -   **Differ with JAVA:** Main used standalone application, Mobile app(android), multi-thread, statically typing language.
 
-### let, const and var:
+### Feature of Javascript:
+
+-   [Variables & Scope](#variables--scope)
+-   [Data Types](#data-types)
+-   [Hosting](#hosting)
+-   [Object](#object)
+-   [Prototypal Inheritance](#prototypal-inheritance)
+-   [Class](#class)
+-   [`this` Keyword ? call, apply & bind](#this-keyword--call-apply-and-bind-method)
+-   [Shallow & Deep copy](#shallow--deep-copy)
+-   [Event Propagation](#event-propagation--event-delegation)
+-   [Storage](#storage)
+-   [Functions](#functiontypes)
+    -   [Callback Function]()
+    -   [Higher Order Function]()
+    -   [Generator Functions]()
+    -   [IIFI Function]()
+    -   [Clourse Function]()
+    -   [curreying Function]()
+-   null and undefine
+-   Loops
+-   String
+-   Array
+-   Map, Filter and Reduce
+-   Console
+
+### Variables & Scope:
 
 -   `var` is a functional(global) scope, it re-declare variable & reassign value,
 -   `let` is a block scope, Allows re-assign value but not re-declare within the same scope.
 -   `const` is a block scope, it cannot be reassigned/declaration.
+
+### Data Types:
+
+-   **Primitive:** string, number, boolean, null, undefine, bigint, symbol
+-   **Non-Primitive:** function, array these is all about object.
 
 ### Hosting:
 
 Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed
 
 Note : variable declarations are hoisted, not initialize/assign variable or functions.
-
-### Data Types:
-
--   **Primitive:** string, number, boolean, null, undefine, bigint, symbol
--   **Non-Primitive:** function, array these is all about object.
 
 ### Object:
 
@@ -30,7 +56,7 @@ Object is a collection of data & properties with key/ value formate.
 -   Constructor Object
 -   Built-in Object
 
-### prototypal inheritance:
+### Prototypal Inheritance:
 
 -   Every object has a prototype properties.
 -   It objects inherit properties and methods from their prototypes.
@@ -123,9 +149,13 @@ new Set(), add(), delete(), has(), size(), clear()
 
 1. Function declaration / normal function
 2. Function expression (function assign in variable)
-3. Arrow function in ES6
-4. Function Parameters and Default Values
-5. Rest Parameters and Spread Operator
+3. Function Parameters and Default Values
+4. Rest Parameters and Spread Operator
+
+5. **Arrow function (ES6+):**
+
+    - Do not have their own `this` context,
+    - Especially useful for short, one-line expressions.
 
 6. **Callback Functions:**
    Function is passed as an argument to another function and executed later. Commonly used to asynchronous operation such as data fetching, file reading, event handling
@@ -141,8 +171,8 @@ function callbackFunction() {
 ```
 
 7. **Higher-Order Functions:**
-   That take one or more functions as arguments / return new functions.\
-   Abstract common patterns or functional programming enable operation map, filter...etc.
+   That take one or more functions as arguments / return new functions.
+   Abstract common patterns or functional programming enable operation `map, filter`...etc.
 
 ```js
 function multiplyBy(factor) {
@@ -184,12 +214,66 @@ function curriedOuter(x) {
 console.log(curriedOuter(2)(3)); // Output: 5
 ```
 
+11. **Generator Functions (ES6+):** Generator functions allow you to define an iterative algorithm by writing a function that can be paused and resumed. They use the `yield` keyword to produce a sequence of values.
+
+```js
+function* countUp() {
+    let count = 0;
+    while (true) {
+        yield count++;
+    }
+}
+
+const counter = countUp();
+console.log(counter.next().value); // Output: 0
+console.log(counter.next().value); // Output: 1
+```
+
 ## Arrow Function Vs Regular Function:
 
 -   Maintain `lexical scope` on `this` available in arrow function.
 -   Create `construction` function using regular function.
 -   Used `arguments` object in regular function or
 -   Used `new` keyword to create instances in regular function
+
+### Promise:
+
+A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+
+It is commonly used for handling asynchronous operations, such as fetching data from a server, reading a file, or making an HTTP request. A Promise has three states: `pending`, `fulfilled`, or `rejected`.
+
+-   Parallel Requests : `const [result1, result2] = await Promise.all([promise1, promise2])`
+-   Sequential Requests: chaining promise using `.then().then().catch()`
+
+```js
+    // creating a promise:
+    const myPromise = new Promise((resolve, reject)){
+        if(true){
+            resolve('operation complete success')
+        }else{
+            reject('operation failed')
+        }
+    }
+    // handle a promise with then() or catch()
+    myPromise
+        .then(result => console.log(result))
+        .catch(err => console.log(err))
+
+    // handle multiple promise
+    const promise1 = fetchData();
+    const promise2 = fetchData();
+    Promise.all([promise1, promise2])
+        .then([result1,result2] => console.log(result1, result2))
+
+    // Handle using with Async / Await:
+    const fetchDataAsync = async() => {
+        try {
+            const result = await fetchData()
+        } catch (error) {
+            console.log(error)
+        }
+    }
+```
 
 ### Event Loop:
 
@@ -232,36 +316,9 @@ Web API: (Separate Data Execute)
 13. **Performance Monitoring:** Use performance monitoring tools and browser developer tools to identify bottlenecks and areas for improvement.
 14. **Caching:** Explore service workers for client-side caching and offline capabilities.
 
-### Promise:
+### Fetch API:
 
-The eventual completion (or failure) of an asynchronous operation and its resulting value.
-
--   Parallel Requests : `const [result1, result2] = await Promise.all([promise1, promise2])`
--   Sequential Requests: chaining promise using `.then().then().catch()`
-
-```js
-    // creating a promise:
-    const myPromise = new Promise((resolve, reject)){
-        if(true){
-            resolve('operation complete success')
-        }else{
-            reject('operation failed')
-        }
-    }
-    // handle a promise with then() or catch()
-    myPromise
-        .then(result => console.log(result))
-        .catch(err => console.log(err))
-
-    // handle multiple promise
-    const promise1 = fetchData();
-    const promise2 = fetchData();
-    Promise.all([promise1, promise2])
-        .then([result1,result2] => console.log(result1, result2))
-```
-
-### CORS (Cross-Origin Resource Sharing):
-
+**CORS (Cross-Origin Resource Sharing):**
 Web browsers to restrict web pages from making requests to a different domain than the one that served the web page.
 
 1. **Access-Control-Allow-Origin:** https://allowed-origin.com
@@ -277,6 +334,7 @@ fetch('https://api.example.com/data', {
         'Content-Type': 'application/json',
         Authorization: 'Bearer token',
     },
+    body: JSON.stringify({ name: 'Jon', age: 30 }),
 })
     .then((res) => res.json())
     .catch((err) => console.error(err));
