@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dynamic SVG Manipulation</title>
+        <style>
+            svg#canvas {
+                border: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <svg id="canvas" width="400" height="400"></svg>
+
+        <script>
+            // Function to create a circle element in the SVG
+            const createCircle = (x, y) => {
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', x);
+                circle.setAttribute('cy', y);
+                circle.setAttribute('r', 20);
+                circle.setAttribute('fill', 'blue');
+                circle.setAttribute('class', 'draggable');
+                // add click event listener to move circle onclick
+                circle.addEventListener('click', () => {
+                    animateCircle(circle);
+                });
+                document.getElementById('canvas').appendChild(circle);
+            };
+
+            // function to animate a circle
+            const animateCircle = (circle) => {
+                const newX = Math.random() * 360;
+                const newY = Math.random() * 360;
+                animate(circle, {
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    onComplete: () => {
+                        console.log('Animation completed!');
+                    },
+                    Keyframes: [
+                        { cx: circle.getAttribute('cx'), cy: circle.getAttribute('cy') },
+                        { cx: newX, cy: newY },
+                    ],
+                });
+                // update attributes
+                circle.setAttribute('cx', newX);
+                circle.setAttribute('cy', newY);
+            };
+
+            // Function to handle SVG element animations
+            const animate = (element, options) => {
+                const { duration = 500, easing = 'ease-in-out', onComplete, keyframes } = options;
+                element.style.transition = `all ${duration / 1000}s ${easing}`;
+                setTimeout(() => {
+                    if (onComplete) onComplete();
+                }, duration);
+                // Apply keyframes
+                keyframes.forEach((keyframe, index) => {
+                    setTimeout(() => {
+                        for (const prop in keyframe) {
+                            element.setAttribute(prop, keyframe[prop]);
+                        }
+                    }, (index / keyframes.length) * duration);
+                });
+            };
+
+            // add circle onClick
+            document.getElementById('canvas').addEventListener('click', (e) => {
+                const x = e.clientX - e.target.getBoundingClientRect().left;
+                const y = e.clientY - e.target.getBoundingClientRect().top;
+                createCircle(x, y);
+            });
+        </script>
+    </body>
+</html>

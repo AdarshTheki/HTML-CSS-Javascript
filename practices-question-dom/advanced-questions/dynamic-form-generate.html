@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dynamic Form Generator</title>
+        <style>
+            label {
+                display: block;
+                margin-bottom: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="form-generate">
+            <h2>Form Generator</h2>
+            <button onclick="generateForm()">generate button</button>
+        </div>
+
+        <form id="form-container">
+            <!-- Adding Data Dynamically -->
+        </form>
+
+        <script>
+            const generateForm = () => {
+                const formContainer = document.getElementById('form-container');
+                // clear existing element
+                formContainer.innerHTML = '';
+                // You can fetch this form on API
+                const formStructure = [
+                    { type: 'text', label: 'Name', placeholder: 'Enter your name' },
+                    { type: 'email', label: 'Email', placeholder: 'Enter your email' },
+                    { type: 'password', label: 'Password', placeholder: 'Enter your password' },
+                    { type: 'checkbox', label: 'subscribe to newsletter' },
+                    { type: 'submit', label: 'Submit' },
+                ];
+                // create form element based
+                formStructure.forEach((field) => {
+                    const element = createElementForm(field);
+                    formContainer.appendChild(element);
+                });
+            };
+
+            const createElementForm = (field) => {
+                const element = document.createElement('div');
+                if (field.type === 'submit') {
+                    const submitButton = document.createElement('button');
+                    submitButton.type = 'submit';
+                    submitButton.textContent = field.label;
+                    element.appendChild(submitButton);
+                } else {
+                    const inputElement = document.createElement('input');
+                    inputElement.type = field.type;
+                    if (field.type !== 'checkbox') {
+                        inputElement.placeholder = field.placeholder;
+                    }
+                    const labelElement = document.createElement('label');
+                    labelElement.textContent = field.label;
+                    labelElement.appendChild(inputElement);
+                    element.appendChild(labelElement);
+                }
+                return element;
+            };
+        </script>
+    </body>
+</html>
