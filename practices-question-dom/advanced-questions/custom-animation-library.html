@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Custom Animation Library</title>
+        <style>
+            .animated {
+                transition: all 0.5s ease-in-out;
+            }
+        </style>
+    </head>
+    <body>
+        <div
+            id="elementToAnimated"
+            class="animated"
+            style="width: 100px; height: 100px; background: blue"></div>
+
+        <script>
+            // simple animation library
+            const animate = (element, option) => {
+                const { duration = 5000, delay = 0, easing = 'ease-in-out', onComplete } = element;
+                element.style.transition = `all ${duration / 1000}s ${easing}`;
+                setTimeout(() => {
+                    onComplete();
+                }, duration + delay);
+            };
+
+            const elementToAnimated = document.getElementById('elementToAnimated');
+
+            // Animation with width and height
+            animate(elementToAnimated, {
+                duration: 1000,
+                delay: 500,
+                easing: 'ease-in-out',
+                onComplete: () => {
+                    console.log('Completed the Animation!');
+                },
+            });
+
+            // Customize the Element Background color
+            setTimeout(() => {
+                elementToAnimated.style.backgroundColor = 'red';
+                animate(elementToAnimated, {
+                    duration: 800,
+                    easing: 'linear',
+                    onComplete: () => {
+                        console.log('Change the Background Color');
+                    },
+                });
+            }, 2000);
+        </script>
+    </body>
+</html>

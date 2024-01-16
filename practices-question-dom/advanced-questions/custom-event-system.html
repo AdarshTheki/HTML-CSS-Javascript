@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Custom Event System</title>
+    </head>
+    <body>
+        <div id="app">
+            <button id="updateButton">Update content</button>
+            <div id="content">g</div>
+        </div>
+
+        <script>
+            class EventEmitter {
+                constructor() {
+                    this.events = [];
+                }
+                subscribe(event, callback) {
+                    if (!this.events[event]) {
+                        this.events[event] = [];
+                    }
+                    this.events[event].push(callback);
+                }
+                publish(event, data) {
+                    if (this.events[event]) {
+                        this.events[event].forEach((callback) => callback(data));
+                    }
+                }
+            }
+
+            const eventEmitter = new EventEmitter();
+
+            // components 1
+            const contentContainer = document.getElementById('content');
+            eventEmitter.subscribe('updateContent', (data) => {
+                contentContainer.textContent = data;
+            });
+
+            // components 1
+            const updateButton = document.getElementById('updateButton');
+            updateButton.addEventListener('click', () => {
+                const newData = prompt('Enter new content:');
+                eventEmitter.publish('UpdateContent', newData);
+            });
+        </script>
+    </body>
+</html>
