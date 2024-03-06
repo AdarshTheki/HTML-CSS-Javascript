@@ -5,48 +5,49 @@
 -   **Usage:** primary used client side, enhanced web page, server side web dev with node.js or mobile app.
 -   **Differ with JAVA:** Main used standalone application, Mobile app(android), multi-thread, statically typing language.
 
-### Feature of Javascript:
-
--   [Variables & Scope](#variables--scope)
--   [Data Types](#data-types)
--   [Hosting](#hosting)
--   [Object](#object)
--   [Prototypal Inheritance](#prototypal-inheritance)
--   [Class](#class)
--   [`this` Keyword ? call, apply & bind](#this-keyword--call-apply-and-bind-method)
--   [Shallow & Deep copy](#shallow--deep-copy)
--   [Event Propagation](#event-propagation--event-delegation)
--   [Storage](#storage)
--   [Functions](#functiontypes)
-    -   [Callback Function]()
-    -   [Higher Order Function]()
-    -   [Generator Functions]()
-    -   [IIFI Function]()
-    -   [Clourse Function]()
-    -   [curreying Function]()
--   null and undefine
--   Loops
--   String
--   Array
--   Map, Filter and Reduce
--   Console
-
-### Variables & Scope:
-
--   `var` is a functional(global) scope, it re-declare variable & reassign value,
--   `let` is a block scope, Allows re-assign value but not re-declare within the same scope.
--   `const` is a block scope, it cannot be reassigned/declaration.
-
 ### Data Types:
 
--   **Primitive:** string, number, boolean, null, undefine, bigint, symbol
--   **Non-Primitive:** function, array these is all about object.
+-   **Primitive:**
+    1.  string : It represent a single or double quote,
+    2.  number : It represent Number decimal or without decimal,
+    3.  boolean : Logical entity true or false value,
+    4.  null : It represent a non-existent or invalid value,
+    5.  undefine: variable declared but not assigned,
+    6.  bigint : It ac store larger number
+    7.  symbol : It is used to store an asynchronous and unique value,
+-   **Non-Primitive:** Its store multiple or complex values,
+    -   function, methods, or
+    -   Array these is all about object.
 
 ### Hosting:
 
-Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed
+Hoisting is the default behavior of javascript, where all the variable and function declarations are moved on top.
 
-Note : variable declarations are hoisted, not initialize/assign variable or functions.
+**Note** : variable declarations are hoisted, not initialize/assign.
+
+### Variables & Scope:
+
+-   **var** is a functional(global) scope, it re-declare variable & reassign value,
+-   **let** is a block scope, Allows re-assign value but not re-declare within the same scope.
+-   **const** is a block scope, it cannot be reassigned/declaration.
+
+### Different between "==" & "===" operators :
+
+-   `==` compare values,
+-   `===` compare both value or datatype.
+
+### What is NaN function or compare operator :
+
+**NuN** : It is represent the **Not-a-Number** value, `typeof` of `NaN` will return a Number.\
+Note- `isNaN()` function converts the given value to a Number type, and then equates to `NaN`.
+
+Compare Operator : **==** is compare value, **===** compare both value & Datatype.
+
+### Strict Mode :
+
+-   Duplicate argument are not allowed.
+-   Not allowed to create global variable.
+-   To define 'strick mode'at the start of the script.
 
 ### Object:
 
@@ -56,163 +57,24 @@ Object is a collection of data & properties with key/ value formate.
 -   Constructor Object
 -   Built-in Object
 
-### Prototypal Inheritance:
-
--   Every object has a prototype properties.
--   It objects inherit properties and methods from their prototypes.
--   Prototypes create a chain, allowing for shared behavior among objects.
--   `Object.create()` can be used for explicit prototypal inheritance.
-
-### Class:
-
-A class is a blueprint or template for creating objects
-
-```js
-class Person {
-    constructor(names, ages) {
-        this.name = names;
-        this.age = ages;
-    }
-    // method
-    sayHello() {
-        console.log(`Hello, ${this.name} and I am ${this.age}`);
-    }
-}
-const client = new Person('Adarsh', 20); // create instance of class person
-client.sayHello(); // call method
-```
-
-### `this` keyword ? call, apply and bind method ?
-
-`this` means current execution context within a function. You can explicitly set the value of `this` using method like `call()`, `apply()` and `bind()`.
-
--   `call` takes individual argument
--   `apply` takes arguments as an array
--   `bind` create a new function that, when called, has a specified `this` value and initial arguments.
-
-```js
-const person = { name: 'Adarsh' };
-
-function greet(greeting) {
-    console.log(`${greeting}, ${this.name}!`);
-}
-greet.call(person, 'Hi'); // Hi, Adarsh!
-greet.apply(person, ['Hola']); // Hola, Adarsh!
-const greedPerson = greet.bind(person);
-greedPerson('Hello'); // Hello, Adarsh!
-```
-
-### Shallow & Deep copy:
-
--   **Shallow copy:** Object to create new object, but copies to top level properties to original object.
-
-    -   object.assign({}, object)
-    -   spread operator {...object}
-    -   Object.prototype.slice()
-
--   **Deep copy:** Object to create new object, copies all nested properties of the original object.
-    -   JASON.pase(JASON.stringify(object))
-    -   structuredClone().
-    -   lodash libraries used.
-
-### Event Propagation & Event Delegation:
-
-**Event Propagation:** In DOM which events traverse through the hierarchy of elements in the document. There are three phases.
-
--   **Bubbling Phase:** Event traverse the inner element to upper element trigger ( child to parent).
--   **Target Phase:** Event reaches the target element.
--   **Capturing phase:** Event traverse the outer element to down element trigger ( parent to child).
-
-    -   **stopPropagation():** Stop continue to propagate up or down events but ancestor trigger event.
-
-    -   **immediatePropagation():** Only trigger the current event element
-
-    -   **preventDefault():** Stop the browser's default action
-
-**Event Delegation:** It concept of event propagation, used to handle events for multiple child elements.
-
-### Storage:
-
--   **Local Storage:** Object allows you to save key/value pairs in the browser. Larger storage capacity, persists across browser sessions, not sent to the server automatically (5-10 MB per domain).
--   **Session Storage:** Similar to localStorage but with a shorter lifespan, cleared when the session ends
-
--   **Cookies:** Small storage capacity, can have an expiration date, sent to the server with every request. (up to 4KB).
-    `document.cookie = 'name=adarsh';`
-
-### Set:
-
-```
-new Set(), add(), delete(), has(), size(), clear()
-```
-
-### Function(types):
-
-1. Function declaration / normal function
-2. Function expression (function assign in variable)
-3. Function Parameters and Default Values
-4. Rest Parameters and Spread Operator
+### Functions:
 
 5. **Arrow function (ES6+):**
-
-    - Do not have their own `this` context,
-    - Especially useful for short, one-line expressions.
+   Do not have their own `this` context, Especially useful for short, one-line expressions.
 
 6. **Callback Functions:**
    Function is passed as an argument to another function and executed later. Commonly used to asynchronous operation such as data fetching, file reading, event handling
 
-```js
-function doSomething(callback) {
-    console.log('Doing something...');
-    callback();
-}
-function callbackFunction() {
-    console.log('Callback executed!');
-}
-```
-
 7. **Higher-Order Functions:**
-   That take one or more functions as arguments / return new functions.
-   Abstract common patterns or functional programming enable operation `map, filter`...etc.
-
-```js
-function multiplyBy(factor) {
-    return function (number) {
-        return number \* factor;
-    };
-}
-const double = multiplyBy(2);
-console.log(double(5)); // Output: 10
-```
+   That take one or more functions as arguments to return new functions. Abstract common patterns or functional programming enable operation `map, filter`...etc.
 
 8. **Closures function:**
    closure is inner function access to the outer function scope, and also return.
-
-```js
-function outerFunction(outerValue) {
-    return function innerFunction(innerValue) {
-        console.log(outerValue + innerValue); // to access variables from the parent scope[lexical scope]
-    };
-}
-const closure = outerFunction(10);
-closure(5); // Output: 15
-```
 
 9. **Immediately Invoked Function Expressions (IIFE)**:
    Avoiding Global Scope Pollution or create Private Scopes
 
 10. **Currying Functions:** Function is transformed into a sequence of functions, each taking a single argument.
-
-```js
-const curriedAdd = (x) => (y) => x + y;
-console.log(curriedAdd(2)(3)); // Output: 5
-
-function curriedOuter(x) {
-    function curriedInner(y) {
-        return x + y;
-    }
-}
-console.log(curriedOuter(2)(3)); // Output: 5
-```
 
 11. **Generator Functions (ES6+):** Generator functions allow you to define an iterative algorithm by writing a function that can be paused and resumed. They use the `yield` keyword to produce a sequence of values.
 
@@ -229,12 +91,46 @@ console.log(counter.next().value); // Output: 0
 console.log(counter.next().value); // Output: 1
 ```
 
-## Arrow Function Vs Regular Function:
+### Arrow Function Vs Regular Function:
 
 -   Maintain `lexical scope` on `this` available in arrow function.
--   Create `construction` function using regular function.
--   Used `arguments` object in regular function or
--   Used `new` keyword to create instances in regular function
+-   Not allow to create `construction` function using arrow function.
+-   Not allow to used `arguments` object in arrow function or
+-   Not allow `new` keyword to create instances in arrow function
+
+### `this` keyword ?
+
+-   The `this` keywords refer to the object that the function is a property of.
+-   The value of `this` keyword will always depends on the object that is invoking the function.
+
+### call, apply and bind method ?
+
+-   `call` : The `call()` method immediately invokes a function, allowing you to set a specific `this` value and pass arguments.
+
+-   `apply` : Similar to `call()`, the `apply()` method immediately invokes a function, but it accepts an array of arguments.
+
+-   `bind`: The `bind()` method returns a new function with a fixed `this` value. It doesn’t immediately execute the function; instead, you can call the bound function later.
+
+Remember, `call()` and `apply()` execute the function right away, while `bind()` returns a new function that you can call later with the desired context.
+
+### Difference between `exec()` and `test()` methods :
+
+The `exec()` and `test()` methods in JavaScript when working with regular expressions:
+
+-   The `exec()` method searches for a specified match within a string using a regular expression. it returns an `array` otherwise return `null`. Syntax: `regularExpressionObj.exec(string)`
+-   The `test()` method checks whether a specified pattern exists in a string. it return true or false. Syntax: `regularExpressionObj.test(string)`
+
+### Prototypal Inheritance:
+
+-   Every object has a prototype properties.
+-   It objects inherit properties and methods from their prototypes.
+-   Prototypes create a chain, allowing for shared behavior among objects, `Object.prototype.`
+
+### Set:
+
+```
+new Set(), add(), delete(), has(), size(), clear()
+```
 
 ### Promise:
 
@@ -246,33 +142,31 @@ It is commonly used for handling asynchronous operations, such as fetching data 
 -   Sequential Requests: chaining promise using `.then().then().catch()`
 
 ```js
-    // creating a promise:
-    const myPromise = new Promise((resolve, reject)){
-        if(true){
-            resolve('operation complete success')
-        }else{
-            reject('operation failed')
-        }
+// creating a promise:
+const myPromise = new Promise((resolve, reject) => {
+    const data = false;
+    if (!data) {
+        resolve('operation complete success');
+    } else {
+        reject('operation failed');
     }
-    // handle a promise with then() or catch()
-    myPromise
-        .then(result => console.log(result))
-        .catch(err => console.log(err))
+});
+// handle a promise with then() or catch()
+myPromise.then((result) => console.log(result)).catch((err) => console.log(err));
 
-    // handle multiple promise
-    const promise1 = fetchData();
-    const promise2 = fetchData();
-    Promise.all([promise1, promise2])
-        .then([result1,result2] => console.log(result1, result2))
+// Handle multiple promise
+const promise1 = fetchData();
+const promise2 = fetchData();
+Promise.all([promise1, promise2]).then(([result1, result2]) => console.log(result1, result2));
 
-    // Handle using with Async / Await:
-    const fetchDataAsync = async() => {
-        try {
-            const result = await fetchData()
-        } catch (error) {
-            console.log(error)
-        }
+// Handle using with Async / Await:
+const fetchDataAsync = async () => {
+    try {
+        const result = await fetchData();
+    } catch (error) {
+        console.log(error);
     }
+};
 ```
 
 ### Event Loop:
@@ -292,6 +186,73 @@ Web API: (Separate Data Execute)
     - setTimeout()
     - setInterval()
     - setImmediate()
+
+### Shallow & Deep copy:
+
+-   **Shallow copy:** : Share reference.
+
+    -   object.assign({}, object)
+    -   spread operator {...object}
+    -   Object.prototype.slice()
+
+-   **Deep copy:** Independent copy of the entries object hierarchy.
+    -   JASON.pase(JASON.stringify(object))
+    -   structuredClone().
+    -   lodash libraries used.
+
+### Document Object Model (DOM) :
+
+-   When an HTML file is loaded into a browser, JavaScript interacts with the DOM created by the browser.
+-   JavaScript can’t directly understand HTML tags but interprets them as objects in the DOM.
+-   DOM allows dynamic updates, responsiveness, and interactivity in web pages.
+
+It is a programming interface for HTML (HyperText Markup Language) and XML (Extensible Markup Language) documents.
+
+### Different between HTML & XML
+
+| Sr. | HTML                                  | XML                                                |
+| --- | ------------------------------------- | -------------------------------------------------- |
+| 1   | Displaying data on web pages.         | XML is designed for storing and transporting data. |
+| 2   | Static in nature.                     | Dynamic in nature.                                 |
+| 3   | Not case-sensitive.                   | case-sensitive.                                    |
+| 4   | Can ignore small errors.              | Not allow small errors.                            |
+| 5   | File extensions are `.html` or `.htm` | File extension is `.xml`                           |
+
+### Differences between client-side and server-side :
+
+| sr.                | client-side                                                | server-side                                                              |
+| ------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Execution Location | Runs on the `client machine`, which is the `browser`.      | Runs on the `server` that serves web pages                               |
+| Purpose            | Enhances and manipulates `web pages` and `client browsers` | Provides `back-end access` to `databases`, `file systems`, and `servers` |
+| Technologies       | HTML, CSS, and JavaScript.                                 | PHP, Python, Java, and Ruby.                                             |
+
+-   **In summary:**
+
+    -   **Client-side** JavaScript runs in the user’s browser, enhancing web pages.
+    -   **Server-side** JavaScript executes on the web server, providing back-end functionality and dynamic content
+
+### Event Propagation & Event Delegation:
+
+**Event Propagation:** In DOM which events traverse through the hierarchy of elements in the document. There are three phases.
+
+-   **Bubbling Phase:** The event bubbles up from the target element to the root element.( child to parent).
+-   **Capturing phase:** - The event travels from the root element down to the target element. ( parent to child).
+
+    -   **stopPropagation():** Stop continue to propagate up or down events but ancestor trigger event.
+
+    -   **immediatePropagation():** Only trigger the current event element
+
+    -   **preventDefault():** Stop the browser's default action
+
+**Event Delegation:** It concept of event propagation, used to handle events for multiple child elements.
+
+### Storage:
+
+-   **Local Storage:** Object allows you to save key/value pairs in the browser. Larger storage capacity, persists across browser sessions, not sent to the server automatically (5-10 MB per domain).
+-   **Session Storage:** Similar to localStorage but with a shorter lifespan, cleared when the session ends
+
+-   **Cookies:** Small storage capacity, can have an expiration date, sent to the server with every request. (up to 4KB).
+    `document.cookie = 'name=adarsh';`
 
 ### Critical Rendering Path (CRP):
 
@@ -338,130 +299,4 @@ fetch('https://api.example.com/data', {
 })
     .then((res) => res.json())
     .catch((err) => console.error(err));
-```
-
-```js
-const element = document.getElementById('demo');
-// search DOM:
-getElementById():
-getElementsByClassName():
-getElementsByName():
-getElementsByTagName():
-querySelector():
-querySelectorAll();
-
-// Traversing nodes and elements
-parentElement();
-parentNode();
-children();
-firstChild();
-lastChild();
-firstElementChild();
-lastElementChild();
-nextSibling();
-previousSibling();
-nextElementSibling();
-previousElementSibling();
-parentNode();
-childNodes();
-
-// Create modify & Delete Elements:
-document.createElement('tagName');
-document.createTextNode('text');
-element.appendChild();
-element.removeChild();
-element.replaceChild();
-element.append();
-element.prepend();
-element.before();
-element.after();
-element.replaceWith();
-element.remove();
-element.insertAdjacentHTML('afterbegin', 'text / element');
-element.insertAdjacentElement('beforeend', 'div');
-element.insertAdjacentText('afterbegin', 'text');
-
-// HTML content (Direct method)
-element.innerHTML; // elements
-element.innerText; // comment text
-element.textContent; // comment text
-element.outerHTML; // itself elements
-element.outerText; // itself text
-
-// attributes
-element.hasAttribute();
-element.setAttribute();
-element.getAttribute();
-element.removeAttribute();
-
-// class
-element.classList.add();
-element.classList.remove();
-element.classList.replace();
-element.classList.toggle();
-element.classList.contains();
-
-// Miscellaneous
-element.matches('selector'); // check true / false
-element.closest('selector'); // nearest ancestor check
-element.contains(); // check element
-element.dataset();
-element.focus();
-element.blur();
-element.hidden();
-element.addEventListener('event', 'function');
-element.removeEventListener('event', 'function');
-element.dispatchEvent('event');
-document.elementFromPoint('x', 'y');
-
-const limitedTime = setTimeout(() => {}, 1000);
-clearTimeout(limitedTime);
-
-const infiniteTime = setInterval(() => {}, 1000);
-clearInterval(infiniteTime);
-
-// custom data attribute: element.dataset
-
-<div id='myElement' data-user-id='123' data-user-name='JohnDoe' data-user-role='admin'></div>;
-const myElement = document.getElementById('myElement');
-console.log(myElement.dataset.userId); // 123
-console.log(myElement.dataset.userName); // JohnDoe
-console.log(myElement.dataset.userRole); // admin
-
-// array
-const myArray = new Array();
-myArray.push();
-myArray.pop();
-myArray.shift(); // remove element
-myArray.unshift(); // add element
-myArray.concat();
-myArray.slice();
-myArray.splice(); // changing existing array / or adding new array
-myArray.indexOf(); // check element index
-myArray.findIndex();
-myArray.lastIndexOf();
-myArray.includes();
-myArray.forEach();
-myArray.map();
-myArray.reduce();
-myArray.filter();
-myArray.reverse();
-myArray.join();
-myArray.toString();
-myArray.find(); // return first element with given condition
-myArray.some(); // tests at least one element
-myArray.every(); // tests all element
-myArray.flat(); // create new array with all sub-array / nested array
-myArray.flatMap(); // Map each element of all sub-array
-
-// Object:
-const myObject = new Object();
-Object.keys(myObject); // return key in array
-Object.values(myObject); // return value in array
-Object.entries(myObject); // return array
-Object.assign({}, myObject); // clone, assign
-myObject.hasOwnProperty('key'); // check special property
-Object.create(myObject);
-Object.freeze(myObject); // making immutable
-Object.seal(myObject); // not allowed add or remove method
 ```
