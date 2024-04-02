@@ -105,13 +105,9 @@ console.log(counter.next().value); // Output: 1
 
 ### call, apply and bind method ?
 
--   `call` : The `call()` method immediately invokes a function, allowing you to set a specific `this` value and pass arguments.
-
--   `apply` : Similar to `call()`, the `apply()` method immediately invokes a function, but it accepts an array of arguments.
-
--   `bind`: The `bind()` method returns a new function with a fixed `this` value. It doesn’t immediately execute the function; instead, you can call the bound function later.
-
-Remember, `call()` and `apply()` execute the function right away, while `bind()` returns a new function that you can call later with the desired context.
+`call()` execute the function immediately. It takes individual arguments
+`apply()` execute the function immediately. It takes arguments as an array
+`bind()` returns a new function with the correct context set for later execution.
 
 ### Difference between `exec()` and `test()` methods :
 
