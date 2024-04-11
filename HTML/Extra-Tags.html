@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <template>Hello</template>
+
+        <summary>
+            <details>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque placeat totam ipsa
+                expedita provident corporis labore dolorum molestiae facere harum. In ipsam eveniet,
+                ratione doloremque odit architecto nesciunt autem! Nulla?
+            </details>
+        </summary>
+
+        <label for="ice-cream-choice">Choose a flavor:</label>
+        <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+        <datalist id="ice-cream-flavors">
+            <option value="Chocolate"></option>
+            <option value="Coconut"></option>
+            <option value="Mint"></option>
+            <option value="Strawberry"></option>
+            <option value="Vanilla"></option>
+        </datalist>
+
+        <p>Fuel level:<meter min="0" max="100" low="33" high="66" value="50"></meter></p>
+        <p>He got a <meter low="69" high="80" max="100" value="84"></meter> on the exam.</p>
+
+        <div aria-busy="true" aria-describedby="progress-bar"></div>
+        <progress id="progress-bar"></progress>
+
+        <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+            <input type="range" id="b" name="b" value="0" /> +
+            <input type="number" id="a" name="a" value="10" /> =
+            <output name="result" for="a b">60</output>
+        </form>
+
+        <p>Lorem, sit <mark>amet consectetur adipisicing</mark> elit. Magni, sed?</p>
+        <p>Lorem, <time datetime="2018-07-07">July 7</time></p>
+
+        <figure>
+            <img
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/elephant-660-480.jpg"
+                alt="Elephant at sunset"
+                width="100" />
+            <figcaption>An elephant at sunset</figcaption>
+        </figure>
+
+        <dialog open>
+            <p>Greetings, one and all!</p>
+            <form method="dialog">
+                <button>OK</button>
+            </form>
+        </dialog>
+    </body>
+</html>
