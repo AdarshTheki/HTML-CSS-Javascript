@@ -7,7 +7,7 @@ function stringCompression(str) {
         if (str[i] === str[i + 1]) {
             count++;
         } else {
-            compression += str[i] + (count > 1 ? count : '');
+            compression += str[i] + (count > 1 ? count : 1);
             count = 1;
         }
     }
@@ -16,5 +16,5 @@ function stringCompression(str) {
 
 let originalString = 'aabcccccaaa';
 
-console.log(stringCompression(originalString))
+console.log(stringCompression(originalString));
 // output: a2bc5a3;
