@@ -20,7 +20,7 @@ Simple stapes to improve your communication skills!.
      - Highlights your filter + non-words
 -----
 
-## Writing a good🦸‍♂️ README
+## How to Writing a Good README
 
 - **Make sure the file always includes the following elements:**
   - Titles and internal titles
@@ -39,7 +39,7 @@ Simple stapes to improve your communication skills!.
 
 ---
 
-## How to Learn🧾 Anythings Faster⚡
+## How to Learn Anythings Faster⚡
 
 - **Prepare:**
   - 1.1 - Research Docs, Website, Video etc.
@@ -56,7 +56,7 @@ Simple stapes to improve your communication skills!.
 
 ---
 
-## Important Tools & Skills, You must Knows🛠
+## Important Tools & Skills, You must Knows
 
 - **Notion:**
   - **Learn:** Course for Notion Academy.
@@ -109,20 +109,6 @@ Simple stapes to improve your communication skills!.
   -  Always use 🚀 Latest Feature 🚀.
 
 ---
-## React Developers: This is for you!
-  -  React Hooks.
-  -  Next.js
-  -  React Redux.
-  -  Formic.
-  -  React Query.
-  -  React Virtualize.
-  -  React Spring.
-  -  React testing library.
-  -  TypeScript.
-  -. React native.
-
----
-
 ## Important Project to hire:
   -  **Social Media App:** facebook, snapchat etc..
   -  **E-commerce App:** FlipKar , Amazons, Mantra etc..

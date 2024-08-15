@@ -22,7 +22,6 @@ function swapCharacters(str = '', index1, index2) {
     return arr.join('');
 }
 
-
 // given test inputs
 const arr1 = [6, 7, 8, 9, 10, 11, 13, 12, 15];
 const arr2 = [10, 20, 30, 40, 50, 60, 70];

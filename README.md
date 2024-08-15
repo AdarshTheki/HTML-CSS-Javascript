@@ -1,358 +1,313 @@
-### Javascript:
--   `Define:` Javascript is a High-level, Interpreter, single thread language.
--   `Character:` scripting & interpreter language, dynamic typing, prototype base object oriented programming.
--   `Usage:` primary used client side, enhanced web page, server side web dev with node.js or mobile app.
--   `Difference with JAVA:` Main used standalone application, Mobile app(android), multi-thread, statically typing language.
+## Javascript:
 
+-   **Define:** Javascript is a High-level, Interpreter, single thread language.
+-   **Character:** scripting & interpreter language, dynamic typing, prototype base object oriented programming.
+-   **Usage:** primary used client side, enhanced web page, server side web dev with node.js or mobile app.
+-   **Differ with JAVA:** Main used standalone application, Mobile app(android), multi-thread, statically typing language.
 
-1. **Difference between `undefined` and `null`**:
+### Data Types:
 
-    - `undefined` represents a variable that has been declared but hasn't been assigned a value.
-    - `null` is an intentional absence of any value. It is often used to indicate that a variable should have no value.
-    - In summary, `undefined` means "not initialized," while `null` means "no value."
+-   **Primitive:**
+    1.  string : It represent a single or double quote,
+    2.  number : It represent Number decimal or without decimal,
+    3.  boolean : Logical entity true or false value,
+    4.  null : It represent a non-existent or invalid value,
+    5.  undefine: variable declared but not assigned,
+    6.  bigint : It ac store larger number
+    7.  symbol : It is used to store an asynchronous and unique value,
+-   **Non-Primitive:** Its store multiple or complex values,
+    -   function, methods, or
+    -   Array these is all about object.
 
-2. **`&&` Operator**:
+### Hosting:
 
-    - The `&&` (logical AND) operator returns `true` if both operands are truthy, otherwise, it returns `false`.
-    - Example: `a && b` evaluates to `true` if both `a` and `b` are truthy.
+Hoisting is the default behavior of javascript, where all the variable and function declarations are moved on top.
 
-3. **`||` Operator**:
+**Note** : variable declarations are hoisted, not initialize/assign.
 
-    - The `||` (logical OR) operator returns `true` if at least one of the operands is truthy, otherwise, it returns `false`.
-    - Example: `a || b` evaluates to `true` if either `a` or `b` (or both) are truthy.
+### Variables & Scope:
 
-4. **Converting a String to a Number**:
+-   **var** is a functional(global) scope, it re-declare variable & reassign value,
+-   **let** is a block scope, Allows re-assign value but not re-declare within the same scope.
+-   **const** is a block scope, it cannot be reassigned/declaration.
 
-    - Using the unary plus operator (`+`) is a common way to convert a string to a number.
-    - Example: `const num = +"123"; // num is 123`
+### Different between "==" & "===" operators :
 
-5. **DOM (Document Object Model)**:
+-   `==` compare values,
+-   `===` compare both value or datatype.
 
-    - The DOM represents the structure of an HTML document as a tree of objects.
-    - It allows JavaScript to interact with and manipulate HTML elements dynamically.
+### What is NaN function or compare operator :
 
-6. **Event Propagation**:
+**NuN** : It is represent the **Not-a-Number** value, `typeof` of `NaN` will return a Number.\
+Note- `isNaN()` function converts the given value to a Number type, and then equates to `NaN`.
 
-    - Event propagation refers to how events propagate through the DOM tree.
-    - It includes two phases: capturing (from the root to the target) and bubbling (from the target back up to the root).
+Compare Operator : **==** is compare value, **===** compare both value & Datatype.
 
-7. **Event Bubbling**:
+### Strict Mode :
 
-    - Event bubbling is the process where an event triggered on a child element propagates up to its parent elements.
+-   Duplicate argument are not allowed.
+-   Not allowed to create global variable.
+-   To define 'strick mode'at the start of the script.
 
-8. **Event Capturing**:
+### Object:
 
-    - Event capturing is the opposite of bubbling. It starts from the root and goes down to the target element.
+Object is a collection of data & properties with key/ value formate.
 
-9. **`event.preventDefault()` vs. `event.stopPropagation()`**:
+-   Object Literal,
+-   Constructor Object
+-   Built-in Object
 
-    - `event.preventDefault()` prevents the default behavior of an event (e.g., form submission).
-    - `event.stopPropagation()` stops the event from further propagation (bubbling or capturing).
+### Functions:
 
-10. **Checking if `event.preventDefault()` Was Used**:
+5. **Arrow function (ES6+):**
+   Do not have their own `this` context, Especially useful for short, one-line expressions.
 
-    - You can check if `event.defaultPrevented` is `true` after calling `event.preventDefault()`.
+6. **Callback Functions:**
+   Function is passed as an argument to another function and executed later. Commonly used to asynchronous operation such as data fetching, file reading, event handling
 
-11. **Why does this code `obj.someprop.x` throw an error?**
+7. **Higher-Order Functions:**
+   That take one or more functions as arguments to return new functions. Abstract common patterns or functional programming enable operation `map, filter`...etc.
 
--   This code throws an error because `obj.someprop` is not defined or does not have a property named `x`. Accessing a property (`x`) on an undefined or null value results in a runtime error.
+8. **Closures function:**
+   closure is inner function access to the outer function scope, and also return.
 
-12. **What is `event.target`?**
+9. **Immediately Invoked Function Expressions (IIFE)**:
+   Avoiding Global Scope Pollution or create Private Scopes
 
--   `event.target` refers to the DOM element that triggered an event. It represents the actual element where the event occurred (e.g., a button clicked, a link hovered, etc.).
+10. **Currying Functions:** Function is transformed into a sequence of functions, each taking a single argument.
 
-13. **What is `event.currentTarget`?**
+11. **Generator Functions (ES6+):** Generator functions allow you to define an iterative algorithm by writing a function that can be paused and resumed. They use the `yield` keyword to produce a sequence of values.
 
--   `event.currentTarget` refers to the DOM element that currently handles the event during event propagation. It remains constant throughout the event propagation process, even if the event bubbles or captures.
+```js
+function* countUp() {
+    let count = 0;
+    while (true) {
+        yield count++;
+    }
+}
 
-14. **Difference between `==` and `===`**:
+const counter = countUp();
+console.log(counter.next().value); // Output: 0
+console.log(counter.next().value); // Output: 1
+```
 
--   `==` (loose equality) compares values after type coercion (e.g., converting string to number).
--   `===` (strict equality) compares both values and types without type coercion. It returns true only if both values are of the same type and have the same value.
+### Arrow Function Vs Regular Function:
 
-15. **Why does comparing two similar objects return false in JavaScript?**
+-   Maintain `lexical scope` on `this` available in arrow function.
+-   Not allow to create `construction` function using arrow function.
+-   Not allow to used `arguments` object in arrow function or
+-   Not allow `new` keyword to create instances in arrow function
 
--   When comparing objects (e.g., `{}`), JavaScript checks if they refer to the same memory location (reference equality), not their content. Two different object instances with the same properties are not considered equal.
+### `this` keyword ?
 
-16. **What does the `!!` operator do?**
+-   The `this` keywords refer to the object that the function is a property of.
+-   The value of `this` keyword will always depends on the object that is invoking the function.
 
--   The `!!` (double negation) operator converts a value to its boolean equivalent. It ensures that the result is either `true` or `false`.
+### call, apply and bind method ?
 
-17. **How to evaluate multiple expressions in one line?**
+`call()` execute the function immediately. It takes individual arguments
+`apply()` execute the function immediately. It takes arguments as an array
+`bind()` returns a new function with the correct context set for later execution.
 
--   Use the comma operator (`,`). For example: `const result = (expr1, expr2, expr3);`
+### Difference between `exec()` and `test()` methods :
 
-18. **What is Hoisting?**
+The `exec()` and `test()` methods in JavaScript when working with regular expressions:
 
--   Hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their containing scope during compilation. Variables are hoisted but not their values.
+-   The `exec()` method searches for a specified match within a string using a regular expression. it returns an `array` otherwise return `null`. Syntax: `regularExpressionObj.exec(string)`
+-   The `test()` method checks whether a specified pattern exists in a string. it return true or false. Syntax: `regularExpressionObj.test(string)`
 
-19. **What is Scope?**
+### Prototypal Inheritance:
 
--   Scope defines the visibility and lifetime of variables. JavaScript has function scope (local scope) and block scope (introduced by `let` and `const`).
+-   Every object has a prototype properties.
+-   It objects inherit properties and methods from their prototypes.
+-   Prototypes create a chain, allowing for shared behavior among objects, `Object.prototype.`
 
-20. **What are Closures?**
+### Set:
 
--   Closures are functions that remember the lexical scope in which they were created. They allow access to outer function variables even after the outer function has finished executing.
+```
+new Set(), add(), delete(), has(), size(), clear()
+```
 
-21. **Falsy Values in JavaScript**:
+### Promise:
 
-    -   Falsy values are values that evaluate as "false" when used in a boolean context. Here are the six falsy values in JavaScript:
-        1. `false`: The boolean value `false`.
-        2. `0`: The number zero.
-        3. `""` (empty string): An empty string.
-        4. `null`: The null keyword, representing the absence of any object value.
-        5. `undefined`: The undefined keyword, representing an uninitialized value.
-        6. `NaN`: Stands for "Not a Number." It represents a special value returned from an operation that should return a numeric value but doesn't.
-
-22. **Checking if a Value is Falsy**:
+A Promise is an object representing the eventual completion or failure of an asynchronous operation.
 
-    -   You can use the logical NOT (`!`) operator to check if a value is falsy.
-    -   Example:
-        ```javascript
-        const myVar = 0;
-        if (!myVar) {
-            console.log('myVar is falsy');
-        } else {
-            console.log('myVar is truthy');
-        }
-        ```
-
-23. **"use strict"**:
-
-    -   `"use strict"` is a directive that enables strict mode in JavaScript.
-    -   In strict mode, certain actions that were previously silently ignored or treated as errors are now flagged as errors.
-    -   It helps catch common coding mistakes and improves code quality.
-
-24. **Value of 'this' in JavaScript**:
-
-    -   The value of `this` depends on how a function is called:
-        -   In a regular function, `this` refers to the global object (e.g., `window` in browsers).
-        -   In a method (function inside an object), `this` refers to the object itself.
-        -   In arrow functions, `this` retains the value from the surrounding lexical context.
-
-25. **Prototype of an Object**:
-
-    -   Every object in JavaScript has a prototype.
-    -   The prototype is an object from which the current object inherits properties and methods.
-    -   You can access an object's prototype using `Object.getPrototypeOf(obj)`.
-
-26. **IIFE (Immediately Invoked Function Expression)**:
-
-    -   An IIFE is a function expression that is executed immediately after it is defined.
-    -   It is often used to create a private scope and avoid polluting the global namespace.
-
-27. **`Function.prototype.apply` Method**:
-
-    -   The `apply` method calls a function with a specified `this` value and an array (or array-like object) of arguments.
-    -   Example:
-        ```javascript
-        function greet(name) {
-            console.log(`Hello, ${name}!`);
-        }
-        greet.apply(null, ['Alice']); // Calls greet('Alice')
-        ```
-
-28. **`Function.prototype.call` Method**:
+It is commonly used for handling asynchronous operations, such as fetching data from a server, reading a file, or making an HTTP request. A Promise has three states: `pending`, `fulfilled`, or `rejected`.
 
-    -   Similar to `apply`, but accepts individual arguments instead of an array.
-    -   Example:
-        ```javascript
-        greet.call(null, 'Bob'); // Calls greet('Bob')
-        ```
-
-29. **Difference between `apply` and `call`**:
-
-    -   Both methods invoke a function with a specific `this` value.
-    -   `apply` takes an array of arguments, while `call` takes individual arguments.
-
-30. **Usage of `Function.prototype.bind`**:
-
-    -   The `bind` method creates a new function with a fixed `this` value and partially applied arguments.
-    -   It is commonly used for event handlers or callbacks.
-
-31. **Functional Programming**:
-
-    -   Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions.
-    -   Features of functional programming include:
-        -   **Pure Functions**: Functions that always produce the same output for the same input and have no side effects.
-        -   **Immutability**: Avoiding changing data after creation.
-        -   **Higher-Order Functions**: Functions that take other functions as arguments or return functions.
-        -   **First-Class Functions**: Treating functions as first-class citizens (assigning them to variables, passing them as arguments, etc.).
-
-32. **Higher Order Functions (HOF)**:
-
-    -   HOFs are functions that take other functions as arguments or return functions.
-    -   Examples: `map`, `filter`, `reduce`.
-
-33. **First-Class Functions**:
-
-    -   Functions are first-class citizens in JavaScript, meaning they can be:
-        -   Assigned to variables.
-        -   Passed as arguments.
-        -   Returned from other functions.
+-   Parallel Requests : `const [result1, result2] = await Promise.all([promise1, promise2])`
+-   Sequential Requests: chaining promise using `.then().then().catch()`
 
-34. **Implementing `Array.prototype.map`**:
+```js
+// creating a promise:
+const myPromise = new Promise((resolve, reject) => {
+    const data = false;
+    if (!data) {
+        resolve('operation complete success');
+    } else {
+        reject('operation failed');
+    }
+});
+// handle a promise with then() or catch()
+myPromise.then((result) => console.log(result)).catch((err) => console.log(err));
 
-    -   The `map` method creates a new array by applying a function to each element of an existing array.
-    -   Here's a basic implementation:
-        ```javascript
-        function myMap(arr, callback) {
-            const result = [];
-            for (let i = 0; i < arr.length; i++) {
-                result.push(callback(arr[i], i, arr));
-            }
-            return result;
-        }
-        ```
+// Handle multiple promise
+const promise1 = fetchData();
+const promise2 = fetchData();
+Promise.all([promise1, promise2]).then(([result1, result2]) => console.log(result1, result2));
 
-35. **Implementing `Array.prototype.filter`**:
+// Handle using with Async / Await:
+const fetchDataAsync = async () => {
+    try {
+        const result = await fetchData();
+    } catch (error) {
+        console.log(error);
+    }
+};
+```
 
-    -   The `filter` method creates a new array with all elements that pass a test (provided by a function).
-    -   Basic implementation:
-        ```javascript
-        function myFilter(arr, callback) {
-            const result = [];
-            for (let i = 0; i < arr.length; i++) {
-                if (callback(arr[i], i, arr)) {
-                    result.push(arr[i]);
-                }
-            }
-            return result;
-        }
-        ```
+### Event Loop:
 
-36. **Implementing `Array.prototype.reduce`**:
+-   The event loop constantly checks two things: the `call stack` and the `event queue`.
+-   If the call stack is empty, the event loop takes the first event from the queue and pushes it onto the call stack, making it the current operation.
+-   The event loop continues this process, ensuring that the call stack is always empty before processing the next event from the queue.
 
-    -   The `reduce` method applies a function against an accumulator and each element in the array.
-    -   Basic implementation:
-        ```javascript
-        function myReduce(arr, callback, initialValue) {
-            let accumulator = initialValue;
-            for (let i = 0; i < arr.length; i++) {
-                accumulator = callback(accumulator, arr[i], i, arr);
-            }
-            return accumulator;
-        }
-        ```
+Web API: (Separate Data Execute)
 
-37. **`arguments` Object**:
+1. Job Queue:(Micro tasks - first run)
+    - process.nextTick(),
+    - Promise callback,
+    - async function,
+    - Queue MicroTask,
+2. Task Queue:(Macro tasks - second run)
+    - setTimeout()
+    - setInterval()
+    - setImmediate()
 
-    -   The `arguments` object is an array-like object available inside functions.
-    -   It contains all arguments passed to the function.
+### Shallow & Deep copy:
 
-38. **Creating an Object without a Prototype**:
+-   **Shallow copy:** : Share reference.
 
-    -   You can create an object without a prototype using `Object.create(null)`.
+    -   object.assign({}, object)
+    -   spread operator {...object}
+    -   Object.prototype.slice()
 
-39. **Global Variable Issue**:
+-   **Deep copy:** Independent copy of the entries object hierarchy.
+    -   JASON.pase(JASON.stringify(object))
+    -   structuredClone().
+    -   lodash libraries used.
 
-    -   If `b` becomes a global variable, it's likely due to not declaring it with `var`, `let`, or `const` inside the function scope.
+### Document Object Model (DOM) :
 
-40. **ECMAScript (ES)**:
+-   When an HTML file is loaded into a browser, JavaScript interacts with the DOM created by the browser.
+-   JavaScript can’t directly understand HTML tags but interprets them as objects in the DOM.
+-   DOM allows dynamic updates, responsiveness, and interactivity in web pages.
 
-    -   ES is the standard specification for JavaScript.
-    -   Each version (ES5, ES6/ES2015, etc.) introduces new features and improvements.
+It is a programming interface for HTML (HyperText Markup Language) and XML (Extensible Markup Language) documents.
 
-41. **New Features in ES6 (ECMAScript 2015)**:
+### Different between HTML & XML
 
-    -   ES6 introduced several key features to JavaScript. Some of the most important ones include:
-        -   **`let` and `const` Keywords**: Block-scoped variables that allow better variable management.
-        -   **Arrow Functions**: A concise syntax for writing function expressions.
-        -   **Spread (`...`) Operator**: Expands iterables (arrays, strings) into more elements.
-        -   **`for/of` Loop**: Iterates over values of iterable objects.
-        -   **Map Objects**: Key-value pairs with arbitrary keys.
-        -   **Set Objects**: Collections of unique values.
-        -   **Classes**: Syntactical sugar for constructor functions.
-        -   **Promises**: Improved handling of asynchronous operations.
-        -   **Template Literals**: Enhanced string interpolation.
-        -   **Default Parameters**: Specify default values for function parameters.
-        -   **Rest Parameter**: Collects remaining function arguments into an array.
-        -   **Symbol**: A new primitive data type for unique identifiers.
+| Sr. | HTML                                  | XML                                                |
+| --- | ------------------------------------- | -------------------------------------------------- |
+| 1   | Displaying data on web pages.         | XML is designed for storing and transporting data. |
+| 2   | Static in nature.                     | Dynamic in nature.                                 |
+| 3   | Not case-sensitive.                   | case-sensitive.                                    |
+| 4   | Can ignore small errors.              | Not allow small errors.                            |
+| 5   | File extensions are `.html` or `.htm` | File extension is `.xml`                           |
 
-42. **Difference between `var`, `let`, and `const`**:
+### Differences between client-side and server-side :
 
-    -   `var`: Function-scoped, hoisted, and can be redeclared.
-    -   `let`: Block-scoped, not hoisted, and can be reassigned.
-    -   `const`: Block-scoped, not hoisted, and cannot be reassigned (but its properties can).
+| sr.                | client-side                                                | server-side                                                              |
+| ------------------ | ---------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Execution Location | Runs on the `client machine`, which is the `browser`.      | Runs on the `server` that serves web pages                               |
+| Purpose            | Enhances and manipulates `web pages` and `client browsers` | Provides `back-end access` to `databases`, `file systems`, and `servers` |
+| Technologies       | HTML, CSS, and JavaScript.                                 | PHP, Python, Java, and Ruby.                                             |
 
-43. **Arrow Functions**:
+-   **In summary:**
 
-    -   Short syntax for writing function expressions.
-    -   No need for the `function` keyword or curly braces.
-    -   Lexical scoping of `this`.
+    -   **Client-side** JavaScript runs in the user’s browser, enhancing web pages.
+    -   **Server-side** JavaScript executes on the web server, providing back-end functionality and dynamic content
 
-44. **Classes**:
+### Event Propagation & Event Delegation:
 
-    -   Syntactical sugar for constructor functions.
-    -   Encapsulates data and behavior into reusable objects.
+**Event Propagation:** In DOM which events traverse through the hierarchy of elements in the document. There are three phases.
 
-45. **Template Literals**:
+-   **Bubbling Phase:** The event bubbles up from the target element to the root element.( child to parent).
+-   **Capturing phase:** - The event travels from the root element down to the target element. ( parent to child).
 
-    -   Allow embedding expressions inside strings using backticks.
-    -   Supports multi-line strings.
+    -   **stopPropagation():** Stop continue to propagate up or down events but ancestor trigger event.
 
-46. **Object Destructuring**:
+    -   **immediatePropagation():** Only trigger the current event element
 
-    -   Extracts properties from objects and binds them to variables.
+    -   **preventDefault():** Stop the browser's default action
 
-47. **ES6 Modules**:
+**Event Delegation:** It concept of event propagation, used to handle events for multiple child elements.
 
-    -   Allows modular code organization using `import` and `export`.
+### Storage:
 
-48. **The Set Object**:
+-   **Local Storage:** Object allows you to save key/value pairs in the browser. Larger storage capacity, persists across browser sessions, not sent to the server automatically (5-10 MB per domain).
+-   **Session Storage:** Similar to localStorage but with a shorter lifespan, cleared when the session ends
 
-    -   Represents a collection of unique values.
-    -   Useful for removing duplicates from arrays.
+-   **Cookies:** Small storage capacity, can have an expiration date, sent to the server with every request. (up to 4KB).
+    `document.cookie = 'name=adarsh';`
 
-49. **Promises**:
+### Critical Rendering Path (CRP):
 
-    -   Handles asynchronous operations and provides better error handling.
+-   CRP involves HTML parsing and DOM construct, CSS parsing, layout calculations, and painting.
+-   Optimizing the Render Tree, CSS, and JavaScript is essential for faster rendering.
+-   Minification, compression, and image optimization contribute to improved performance.
 
-50. **Async/Await**:
+### Optimizing the performance:
 
-    -   Syntactic sugar for handling promises in a more synchronous style.
+1. **Minification and Compression:** Remove unnecessary whitespace, comments, and rename variables
+2. **Bundle and Code Splitting:** Bundle multiple JavaScript files into a single file.
+3. **lazy loading:** Use lazy loading for images, scripts, and other assets. Delay the loading of non-essential resources until they are needed.
+4. **Async and Defer Attributes:** `async` allows scripts to be downloaded asynchronously without blocking HTML parsing. `defer` ensures scripts are executed in order after HTML parsing.
+5. **Critical Path Rendering:** Minimize the number of render-blocking resources, such as CSS and JavaScript files.
+6. **Optimized Images:** Compress and optimize images to reduce their file size. Employ lazy loading for images to defer loading until they are about to be displayed
+7. **Service Workers:** Implement service workers to enable background tasks, caching, and offline capabilities.
+8. **Reduce DOM Manipulation:** Minimize direct DOM manipulation, as it can be a performance bottleneck. Use efficient DOM manipulation techniques, such as document fragment or virtual DOM, to optimize updates.
+9. **Throttle and Debounce:** `Throttling` ensures a function is not executed more than once in a specified time period, while `debouncing` delays the execution until a specified time has passed since the last invocation.
+10. **Optimize Network Requests:** Use a content delivery network (CDN) to serve static assets from servers located closer to the user.
+11. **Memory Management:** Be mindful of memory leaks by cleaning up event listeners, removing references to unused objects, and avoiding unnecessary global variables.
+12. **Preconnect and Prefetch:** Use the <link> tag with `rel="preconnect"` to initiate early connections to third-party domains. Utilize <link> with `rel="prefetch"` to fetch and cache resources that will be needed in the future.
+13. **Performance Monitoring:** Use performance monitoring tools and browser developer tools to identify bottlenecks and areas for improvement.
+14. **Caching:** Explore service workers for client-side caching and offline capabilities.
 
-51. **`async/await`**:
+### Fetch API:
 
-    -   `async` functions return promises and allow you to write asynchronous code in a more synchronous style.
-    -   The `await` keyword is used inside an `async` function to pause execution until a promise is resolved.
+**CORS (Cross-Origin Resource Sharing):**
+Web browsers to restrict web pages from making requests to a different domain than the one that served the web page.
 
-52. **Spread Operator vs. Rest Operator**:
+1. **Access-Control-Allow-Origin:** https://allowed-origin.com
+2. **Access-Control-Allow-Methods:** GET, POST, PUT, DELETE
+3. **Access-Control-Allow-Headers:** Content-Type, Authorization
+4. **Access-Control-Allow-Credentials:** true
+5. **Access-Control-Expose-Headers:** Content-Length, X-Content-Range
 
-    -   Spread (`...`) expands iterables into individual elements.
-    -   Rest collects function arguments into an array.
+```js
+fetch('https://api.example.com/data', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer token',
+    },
+    body: JSON.stringify({ name: 'Jon', age: 30 }),
+})
+    .then((res) => res.json())
+    .catch((err) => console.error(err));
+```
 
-53. **Default Parameters**:
+---
 
-    -   Specify default values for function parameters.
-    -   Example: `function greet(name = 'Guest') { ... }`
+## Top Question Interviews? What is it, How does it works and Why?
 
-54. **Wrapper Objects**:
-
-    -   JavaScript automatically converts primitives (like strings and numbers) to wrapper objects when needed.
-    -   Example: `"Hello".toUpperCase()` creates a temporary `String` object.
-
-55. **Implicit vs. Explicit Coercion**:
-
-    -   Implicit coercion occurs when JavaScript automatically converts one type to another (e.g., string to number).
-    -   Explicit coercion is done intentionally using functions like `Number()`, `String()`, etc.
-
-56. **NaN (Not-a-Number)**:
-
-    -   Represents an invalid number result (e.g., dividing zero by zero).
-    -   To check if a value is NaN, use `isNaN(value)`.
-
-57. **Checking if a Value is an Array**:
-
-    -   Use `Array.isArray(value)` to determine if a value is an array.
-
-58. **Checking if a Number is Even without `%` Operator**:
-
-    -   Use bitwise AND (`&`) with 1: `(number & 1) === 0`.
-
-59. **Checking if a Property Exists in an Object**:
-
-    -   Use the `in` operator or `hasOwnProperty()` method.
-
-60. **AJAX (Asynchronous JavaScript and XML)**:
-    -   Allows making asynchronous requests to a server without reloading the entire page.
+1. Set Time Out Zero ? Event Loop ? Promise.resolve() ?
+2. Critical Rendering Path (CRP) ? Head, body, End, Delay load, Defer, Async ?
+3. Let, Const and Var difference ? In block scoping understand ? what is TDZ ?
+4. Closure explain with example ?
+5. Functional Programming ? Pure function ? create Polyfill map filter, reduce ? compose, curring usage ?
+6. This keyword ? call bind apply ? arrow function ?
+7. Frameworks chosen and why ?
+8. Virtual DOM , Reconciliations ? Prototypical Inheritances ?
+9. Callback, Async/Await, Promise etc ? Parallel Request ? Sub-sequences Request ? why Your own Promise implantation, state manage ?
+10. Debounce vs Throttle ?
