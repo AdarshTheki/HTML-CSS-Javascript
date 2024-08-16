@@ -9,7 +9,6 @@ function linearSearch(arr = [], k) {
 }
 
 // Binary Search O(log n)
-
 function binarySearch(arr = [], k) {
     let start = 0,
         end = arr.length - 1;
